@@ -1,0 +1,56 @@
+.quotes {
+    width: 100%;
+    border-top: 1px solid var(--border-color);
+    padding: 80px 0;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.quotes-list {
+    position: relative;
+    width: 100%;
+    height: 120px;
+}
+
+.quote {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0 auto;
+    text-align: center;
+    opacity: 0;
+    width: 550px;
+    font-size: 2rem;
+    line-height: 1.8;
+    transition: all 0.4s ease-in-out;
+
+    &.active {
+        transition-delay: 1s;
+        opacity: 1;
+        top: 0;
+    }
+}
+
+.dots-list {
+    margin-top: 60px;
+    display: flex;
+    align-items: center;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    margin: 0 7px;
+    border-radius: 50%;
+    cursor: pointer;
+    background-color: transparent;
+    border: 2px solid var(--border-color);
+    transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
+
+    &.active {
+        border-color: var(--text-color);
+        background-color: var(--text-color);
+    }
+}

@@ -1,0 +1,90 @@
+@import 'normalize.css';
+
+// Fonts
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rokkitt:wght@100;200;300;400&display=swap');
+
+:root {
+    // colors
+    --header-logo-width: 170px;
+    --header-border-color: #ddd;
+    --header-light-text-color: #6a6a6a;
+    --header-height: 116px;
+    --header-only-navbar: 70.5px;
+    --header-only-policy: 45.5px;
+    --header-padding-sides-item: 21px;
+    --header-subnavbar-min-width: 200px;
+    --header-subnavbar-max-width: 270px;
+    --footer-text-color: #6a6a6a;
+
+    --primary-color: #e7ad1a;
+    --text-color: #1c1b1b;
+    --white-color: #fff;
+    --text-color-light: #6a6a6a;
+    --border-color: #ddd;
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    font-size: 62.5%;
+    // scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Lora', serif;
+    font-size: 1.6rem;
+    line-height: 1.5;
+    overflow-y: overlay;
+}
+
+.disable-scrollbar {
+    overflow-y: hidden;
+}
+
+button,
+input,
+[tabindex] {
+    background: none;
+    outline: none;
+    border: none;
+}
+
+ul {
+    padding: 0;
+    list-style: none;
+}
+
+a {
+    color: var(--text-color);
+    outline: none;
+    text-decoration: none;
+}
+
+// Scrollbar
+html *::-webkit-scrollbar {
+    border-radius: 0;
+    width: 8px;
+}
+
+html *::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, 0.15);
+}
+
+html *::-webkit-scrollbar-track {
+    border-radius: 0;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+// Fonts
+
+@font-face {
+    font-family: OrganikaScript;
+    src: url('/assets/fonts/MikaMelvas-OrganikaScript.otf');
+    font-weight: 400;
+}

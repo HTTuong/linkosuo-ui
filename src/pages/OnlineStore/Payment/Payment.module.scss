@@ -1,0 +1,28 @@
+.wrapper {
+    padding: 250px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.title {
+    font-size: 1.6rem;
+    font-weight: 500;
+    margin-bottom: 16px;
+    line-height: 1.65;
+}
+
+.subtitle {
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: var(--text-color-light);
+    margin-bottom: 14px;
+}
+
+.payment-btn {
+    margin-top: 20px;
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    font-weight: 400;
+}

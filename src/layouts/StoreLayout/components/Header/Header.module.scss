@@ -1,0 +1,66 @@
+.wrapper {
+    width: 100%;
+    position: relative;
+}
+
+.header {
+    position: absolute;
+    top: var(--header-only-policy);
+    color: var(--header-light-text-color);
+    width: 100%;
+    z-index: 3;
+    background-color: var(--white-color);
+    display: flex;
+    align-items: center;
+    padding: 0 50px;
+    box-shadow: 0 -1px var(--header-border-color) inset;
+
+    &.has-overlay {
+        position: fixed;
+        width: 100%;
+    }
+
+    &.scrolled {
+        position: fixed;
+        width: 100%;
+        top: 0;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.logo {
+    display: flex;
+    margin-right: 17px;
+    width: var(--header-logo-width);
+    -webkit-user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+.search-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(54, 54, 54, 1);
+    opacity: 0;
+    visibility: hidden;
+    z-index: 2;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+
+    &.is-overlay {
+        visibility: visible;
+        opacity: 0.5;
+    }
+}

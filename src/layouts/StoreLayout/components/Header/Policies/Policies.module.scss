@@ -1,0 +1,15 @@
+.policies {
+    width: 100%;
+    position: absolute;
+    background-color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 13px 15px;
+
+    &__order {
+        color: var(--text-color);
+        font-size: 1.3rem;
+        font-weight: 500;
+    }
+}

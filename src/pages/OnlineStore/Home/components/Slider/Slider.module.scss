@@ -1,0 +1,81 @@
+.slider {
+    position: relative;
+
+    &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: calc(100vh - (var(--header-height)));
+        background-image: linear-gradient(to top, rgba(4, 4, 4, 0.65), rgba(54, 54, 54, 0.2));
+        animation: fadeSlider ease-in-out 1s;
+    }
+}
+
+@keyframes fadeSlider {
+    from {
+        background-color: #cfbca5;
+    }
+    to {
+        background-color: none;
+    }
+}
+
+.slider-image {
+    width: 100%;
+    display: block;
+    height: calc(100vh - (var(--header-height)));
+    background-image: url('https://cdn.shopify.com/s/files/1/0544/2600/9779/files/Linkosuo_verkkokauppa_juhlat_2200x.jpg?v=1641275945');
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 1;
+}
+
+.introduction {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--white-color);
+    z-index: 1;
+}
+
+.introduction-subtitle {
+    font-size: 1.4rem;
+    font-weight: 500;
+    margin-bottom: 15px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(80%);
+    transition: all 0.5s ease-out;
+}
+
+.introduction-title {
+    font-size: 6rem;
+    line-height: 1;
+    font-family: 'OrganikaScript', sans-serif;
+    margin-bottom: 50px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(40%);
+    transition: all 0.5s ease-out;
+}
+
+.introduction-btn {
+    background: var(--white-color);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(80%);
+    transition: all 0.6s ease-out;
+}
+
+.animation {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(5%);
+}

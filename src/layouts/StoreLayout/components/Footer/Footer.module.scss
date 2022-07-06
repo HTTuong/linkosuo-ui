@@ -1,0 +1,137 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    padding: 75px 60px 42px 60px;
+    border-top: 1px solid var(--border-color);
+}
+
+.inner {
+    display: flex;
+    justify-content: space-between;
+}
+
+.block {
+    padding: 0 25px;
+    margin-bottom: 50px;
+    max-width: 400px;
+}
+
+.title {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.security,
+.address__visiting,
+.address__region {
+    margin-bottom: 22px;
+}
+
+.security-number,
+.address__visiting-address,
+.address__region-info,
+.address__region-code-city,
+.address__region-country {
+    font-size: 1.3rem;
+    line-height: 1.65;
+    color: var(--footer-text-color);
+}
+
+.security-title,
+.address__visiting-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    line-height: 1.65;
+    color: var(--footer-text-color);
+}
+
+.address .report {
+    display: inline-block;
+    padding: 0;
+    font-family: 'Lora', serif;
+    font-size: 1.3rem;
+    font-weight: normal;
+    letter-spacing: normal;
+    text-transform: capitalize;
+    text-align: center;
+    color: var(--footer-text-color);
+    border-bottom: 1px solid var(--footer-text-color);
+    transition: all 0.3s ease-in-out;
+    margin-bottom: 30px;
+
+    &:hover {
+        cursor: pointer;
+        color: var(--text-color);
+        border-bottom: 1px solid var(--text-color);
+    }
+}
+
+.social-network {
+    display: flex;
+}
+
+.link {
+    display: flex;
+}
+
+.instagram-icon,
+.facebook-icon {
+    color: var(--footer-text-color);
+    margin-right: 24px;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+        cursor: pointer;
+        color: var(--text-color);
+    }
+}
+
+.facebook-icon {
+    font-size: 1.4rem;
+}
+
+.about {
+    display: flex;
+    flex-direction: column;
+
+    & .paragraph {
+        margin-bottom: 22px;
+        line-height: 1.65;
+        color: var(--footer-text-color);
+        font-size: 1.3rem;
+    }
+}
+
+.information-item {
+    display: block;
+    line-height: 1.65;
+    color: var(--footer-text-color);
+    font-size: 1.3rem;
+    margin-bottom: 12px;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+        cursor: pointer;
+        color: var(--text-color);
+    }
+}
+
+.brand {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    padding: 0 25px;
+
+    & .brand-title {
+        color: var(--text-color);
+        font-size: 1.3rem;
+        font-weight: 600;
+        margin-bottom: 8px;
+    }
+
+    & .brand-subtitle {
+        color: var(--footer-text-color);
+        font-size: 1.3rem;
+    }
+}

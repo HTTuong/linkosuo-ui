@@ -1,0 +1,122 @@
+.actions {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.navbar {
+    flex: 1;
+}
+
+.actions-list {
+    display: flex;
+    align-items: center;
+}
+
+.action-item {
+    font-weight: 500;
+    font-size: 1.5rem;
+    padding: 6px;
+    margin: 0 15px;
+}
+
+.action-item {
+    padding: 6px;
+    margin: 0 8px;
+    color: var(--header-light-text-color);
+    font-size: 1.3rem;
+    cursor: pointer;
+    transition: color ease-in-out 0.2s;
+
+    &:hover {
+        color: var(--text-color);
+    }
+
+    &:hover .action-title {
+        color: var(--text-color);
+    }
+
+    &:last-child {
+        padding: 0 6px;
+        padding-right: 0;
+        margin-right: 0;
+        color: var(--text-color);
+        font-size: 1.5rem;
+
+        & span {
+            margin: 0 6px;
+            font-size: 1.3rem;
+            position: relative;
+            top: -1px;
+        }
+
+        & .item-number {
+            position: relative;
+            top: 1px;
+            font-size: 1.3rem;
+            line-height: 28px;
+        }
+    }
+}
+
+.action-title {
+    font-size: 1.3rem;
+    color: var(--header-light-text-color);
+    transition: color ease-in-out 0.2s;
+}
+
+.item-number {
+    margin: 0px 6px;
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+//Search
+.search {
+    position: fixed;
+    top: var(--header-height);
+    left: 0;
+    width: 100%;
+    padding: 16px 50px;
+    pointer-events: none;
+    visibility: hidden;
+    background-color: var(--white-color);
+    z-index: 2;
+    display: flex;
+    align-items: center;
+}
+
+.search-showed {
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.search-scrolled {
+    top: var(--header-only-navbar);
+}
+
+.search-icon {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+}
+
+.search-input {
+    flex: 1;
+    font-size: 2rem;
+    font-family: 'Lora', serif;
+    font-weight: 500;
+    color: var(--text-color);
+    background: none;
+    padding: 12px 2px;
+
+    &::placeholder {
+        color: black;
+    }
+}
+
+.close-icon {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}

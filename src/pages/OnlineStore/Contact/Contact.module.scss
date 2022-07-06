@@ -1,0 +1,110 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 680px;
+    margin: 0 auto;
+}
+
+.heading__title {
+    text-align: center;
+    font-weight: 500;
+    padding: 50px 0;
+
+    &::first-letter {
+        text-transform: capitalize;
+    }
+}
+
+.information {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+
+    &__item {
+        font-size: 1.35rem;
+        font-weight: 500;
+        margin-bottom: 1.6em;
+        line-height: 1.65;
+
+        &--light {
+            font-weight: 400;
+            font-size: 1.35rem;
+            color: #1c1b1bd3;
+            line-height: 1.65;
+            margin-bottom: 1.6em;
+        }
+    }
+
+    &__seperate {
+        margin-bottom: 1.6em;
+        height: 23px;
+    }
+}
+
+.form {
+    width: 100%;
+    margin-top: 42px;
+    margin-bottom: 120px;
+
+    & > .input-item {
+        margin-bottom: 0;
+    }
+}
+
+.section {
+    display: flex;
+    justify-content: space-between;
+}
+
+.input-item {
+    width: 100%;
+    padding: 12px 14px;
+    font-family: 'Lora', serif;
+    border: 1px solid var(--border-color);
+    transition: border-color 0.1s ease-in-out;
+    margin-bottom: 15px;
+
+    &::placeholder {
+        font-family: 'Lora', serif;
+    }
+
+    & + .input-item {
+        margin: 0 0 15px 15px;
+    }
+
+    &:focus {
+        border-color: var(--text-color);
+    }
+}
+
+.message-item {
+    width: 100%;
+    padding: 12px 14px;
+    font-family: 'Lora', serif;
+    border: 1px solid var(--border-color);
+    transition: border-color 0.1s ease-in-out;
+    margin-bottom: 15px;
+    margin-top: 15px;
+    height: 196px;
+    resize: none;
+    outline: none;
+
+    &:focus {
+        border-color: var(--text-color);
+    }
+}
+
+.button {
+    width: 100%;
+    color: var(--white-color);
+    font-weight: 400;
+    background-color: var(--primary-color);
+    cursor: pointer;
+}
+
+.warning {
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: red;
+}
