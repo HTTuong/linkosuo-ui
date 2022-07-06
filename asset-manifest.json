@@ -1,18 +1,18 @@
 {
   "files": {
     "main.css": "/linkosuo-ui/static/css/main.786e2473.css",
-    "main.js": "/linkosuo-ui/static/js/main.bede6d68.js",
+    "main.js": "/linkosuo-ui/static/js/main.f1035d1e.js",
     "static/js/787.7d375426.chunk.js": "/linkosuo-ui/static/js/787.7d375426.chunk.js",
     "static/media/slider.png": "/linkosuo-ui/static/media/slider.12e2e1b55e673686fca0.png",
     "static/media/MikaMelvas-OrganikaScript.otf": "/linkosuo-ui/static/media/MikaMelvas-OrganikaScript.e00304ff383b53b04468.otf",
     "static/media/logo.png": "/linkosuo-ui/static/media/logo.6d365e8474dcda63ce7c.png",
     "index.html": "/linkosuo-ui/index.html",
     "main.786e2473.css.map": "/linkosuo-ui/static/css/main.786e2473.css.map",
-    "main.bede6d68.js.map": "/linkosuo-ui/static/js/main.bede6d68.js.map",
+    "main.f1035d1e.js.map": "/linkosuo-ui/static/js/main.f1035d1e.js.map",
     "787.7d375426.chunk.js.map": "/linkosuo-ui/static/js/787.7d375426.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.786e2473.css",
-    "static/js/main.bede6d68.js"
+    "static/js/main.f1035d1e.js"
   ]
 }
