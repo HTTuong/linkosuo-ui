@@ -1,5 +1,13 @@
-# Getting Started with Create React App
+# Introduction
+This project is about using React to clone Linkosuo online store. There are many core concepts which were also applied to this project including React Router, React hooks. 
 
+## About this project
+The main purpose of this project is about taking the advantage of React such as high usability components, routing different pages to make a magnificent online store with a big and different products'data  
+
+In this project, you can interact with the UI and navigate to many pages such as Home page, Menu pages, Cart page and so on. Each pages was designed and coded with different product data but the same layout. User can add the desired products into cart, modify the amount, delete the product and purchase. There is also a section in account page which was applied form validation to make it more practical.  
+
+
+## Getting Started with Create React App
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
