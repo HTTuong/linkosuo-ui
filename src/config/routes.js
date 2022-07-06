@@ -1,6 +1,6 @@
 const routes = {
     store: {
-        home: '/',
+        home: '/linkosuo-ui',
         sweet: '/sweets',
         cake: '/cakes',
         pie: '/pies',
