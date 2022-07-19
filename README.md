@@ -1,3 +1,5 @@
+# Linkosuo UI
+
 # Introduction
 This project is about using React to clone Linkosuo online store. There are many core concepts which were also applied to this project including React Router, React hooks. 
 
@@ -5,6 +7,28 @@ This project is about using React to clone Linkosuo online store. There are many
 The main purpose of this project is about taking the advantage of React such as high usability components, routing different pages to make a magnificent online store with a big and different products'data  
 
 In this project, you can interact with the UI and navigate to many pages such as Home page, Menu pages, Cart page and so on. Each pages was designed and coded with different product data but the same layout. User can add the desired products into cart, modify the amount, delete the product and purchase. There is also a section in account page which was applied form validation to make it more practical.  
+
+## Technologies
+- HTML
+- SCSS
+- JavaScript
+- React
+
+
+## Launch
+- Click the following link to view the project: https://httuong.github.io/linkosuo-ui/
+
+
+## Project status
+- Finished
+
+
+## Illustrations
+### Home page
+<img width="1920" alt="Screen Shot 2022-07-19 at 13 19 43" src="https://user-images.githubusercontent.com/89579792/179728053-ca7a9755-de4a-4e7b-9934-4dc81038c7f4.png">
+
+### Products page
+<img width="1920" alt="Screen Shot 2022-07-19 at 13 20 19" src="https://user-images.githubusercontent.com/89579792/179728164-02be9df6-0608-445b-b6e6-4412ebbf195d.png">
 
 
 ## Getting Started with Create React App
