@@ -37,7 +37,7 @@ function ShowProducts({ options, productsList1, productsList2, title, buttonLink
             <Button
                 to={
                     buttonLink +
-                    `${
+                    `/${
                         activeOption.includes(' ')
                             ? activeOption.split(' ').join('-').toLowerCase() // remove space in option and transform to url pathname
                             : activeOption.toLowerCase()

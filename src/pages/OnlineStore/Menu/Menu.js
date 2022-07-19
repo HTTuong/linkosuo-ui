@@ -18,7 +18,9 @@ function Menu({ data }) {
     const [productList, setProductList] = useState(products);
     const [sortedProductList, setSortedProductList] = useState([]);
 
-    const urlPathName = pathRoute.pathname.split('/')[1];
+    const urlPathName = pathRoute.pathname.split('/')[2];
+
+    console.log(data);
 
     useLayoutEffect(() => {
         for (let type of types) {
