@@ -1,23 +1,48 @@
+import React from 'react';
 import classNames from 'classnames/bind';
 import classes from './GridProducts.module.scss';
 import ImageCard from '~/components/ImageCard';
 import PropTypes from 'prop-types';
 import config from '~/config';
+import CartContext from '~/store/context';
 
 const cx = classNames.bind(classes);
 
-function GridProducts({ products, wrap, className }) {
+function GridProducts({ products, wrap, center, cols, lastviewwidth, className }) {
+    const ctx = React.useContext(CartContext);
+
+    const addLastViewProduct = (product) => {
+        const newProduct = {
+            _id: product._id,
+            name: product.name,
+            price: product.price,
+            src: product.src,
+            alt: product.alt,
+            type: product.type,
+            subtype: product.subtype,
+        };
+
+        ctx.handleAddLastViewProduct(newProduct);
+    };
+
     return (
         <div className={cx('wrapper', { [className]: className })}>
-            <div className={cx('products', { wrap })}>
-                {products.map((item, index) => (
+            <div className={cx('products', { wrap, center })}>
+                {products.map((product) => (
                     <ImageCard
-                        key={index}
-                        src={item.src}
-                        alt={item.alt}
-                        name={item.name}
-                        price={item.price}
-                        to={`${config.routes.store.product}${item.alt}`}
+                        key={Math.random()}
+                        cols={cols}
+                        lastviewwidth={lastviewwidth}
+                        src={product.src}
+                        alt={product.alt}
+                        name={product.name}
+                        price={product.price}
+                        to={`${config.routes.collections.collections}/${
+                            product.subtype ? product.subtype : product.type
+                        }/products/${product._id.toString()}`}
+                        onClick={() => {
+                            addLastViewProduct(product);
+                        }}
                     />
                 ))}
             </div>
@@ -31,4 +56,4 @@ GridProducts.propTypes = {
     className: PropTypes.string,
 };
 
-export default GridProducts;
+export default React.memo(GridProducts);

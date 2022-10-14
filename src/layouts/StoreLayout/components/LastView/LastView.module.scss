@@ -1,0 +1,34 @@
+.wrapper {
+    padding-top: 8rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.heading {
+    padding-bottom: 7rem;
+}
+
+.heading__title {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 600;
+    line-height: 1.65;
+}
+
+.products-list {
+    padding: 0 6rem;
+}
+
+@media (max-width: 1068px) {
+    .wrapper {
+        padding-top: 4rem;
+    }
+
+    .heading {
+        padding-bottom: 4rem;
+    }
+
+    // .products-list {
+    //     padding: 0;
+    //     padding-left: 6rem;
+    // }
+}

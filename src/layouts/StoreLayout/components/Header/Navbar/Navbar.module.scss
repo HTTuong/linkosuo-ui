@@ -17,16 +17,13 @@
     display: flex;
     font-weight: 500;
     font-size: 1.5rem;
+    padding: 24px var(--header-padding-sides-item);
+    color: var(--text-color);
     cursor: pointer;
     position: relative;
 
     &:hover.navbar-item:after {
         width: calc(100% - (var(--header-padding-sides-item) * 2));
-    }
-
-    & > a {
-        display: flex;
-        padding: 24px var(--header-padding-sides-item);
     }
 
     &:after {
@@ -50,19 +47,8 @@
     }
 }
 
-.subnav-item {
-    display: block;
-    padding: 2px 30px 2px 25px;
-    transition: color ease-in-out 0.2s;
-    font-size: 1.3rem;
-
-    & + .subnav-item {
-        margin-top: 11px;
-    }
-
-    &:hover {
-        color: var(--primary-color);
-    }
+.menu-subnav-icon {
+    display: none;
 }
 
 //Dropdown
@@ -76,13 +62,14 @@
     background-color: var(--white-color);
     min-width: var(--header-subnavbar-min-width);
     max-width: var(--header-subnavbar-max-width);
-    padding: 20px 0;
+    padding: 2rem 0;
     border: 1px solid #ddd;
     border-top: none;
-    transition: all 0.3s ease-in-out;
+    transition: opacity 0.3s ease-in-out;
 
-    & li:last-child {
+    & li:last-child a {
         margin-bottom: 0;
+        padding-bottom: 0;
     }
 
     &::before {
@@ -94,5 +81,262 @@
         height: 2px;
         background: #1c1b1b;
         transition: width ease-out 0.3s;
+    }
+}
+
+.subnav-item {
+    display: block;
+    padding: 0.2rem 3rem 1.3rem 2.5rem;
+    transition: color ease-in-out 0.2s;
+    font-size: 1.3rem;
+
+    & + .subnav-item {
+        margin-top: 11px;
+    }
+
+    &:hover {
+        color: var(--primary-color);
+    }
+}
+
+.account-section {
+    display: none;
+}
+
+.close-icon {
+    display: none;
+}
+
+// Small PC screen
+@media (min-width: 1180px) and (max-width: 1224px) {
+    .navbar-item {
+        padding: 0;
+        &:after {
+            content: '';
+            position: absolute;
+            bottom: 0%;
+            left: calc(1.2rem + 0.1rem);
+            width: 0;
+            height: 2px;
+            background: #1c1b1b;
+            transition: width ease-out 0.3s;
+        }
+
+        & > a {
+            padding: 2.4rem 1.2rem;
+        }
+
+        &:hover.navbar-item:after {
+            width: calc(100% - (1.2rem * 2));
+        }
+    }
+
+    .navbar-item-title {
+        display: flex;
+        font-weight: 500;
+        font-size: 1.5rem;
+        padding: 24px 12px;
+        color: var(--text-color);
+        cursor: pointer;
+        position: relative;
+    }
+
+    .sub-navbar {
+        left: 1.2rem;
+    }
+
+    .subnav-item {
+        display: block;
+        padding: 0.2rem 3rem 1.3rem 2.5rem;
+    }
+
+    .navbar {
+        height: var(--header-only-navbar);
+    }
+}
+
+//Tablet
+@media (max-width: 1180px) {
+    .navbar {
+        position: fixed;
+        top: 0;
+        left: -34rem;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 34rem;
+        height: 100vh;
+        background-color: var(--text-color);
+        z-index: 4;
+        transition: all 0.4s ease-in-out;
+    }
+
+    .show {
+        left: 0;
+        z-index: 5;
+    }
+
+    .navbar-list {
+        display: block;
+        width: inherit;
+        padding: 0 3rem;
+        position: relative;
+        left: -5rem;
+        opacity: 0;
+        transition: all 0.5s ease-in-out;
+        transition-property: left, opacity;
+
+        &.show-navbar-list {
+            transition-delay: 0.1s;
+            left: 0;
+            opacity: 1;
+        }
+    }
+
+    .navbar-item {
+        border-bottom: 1px solid #555;
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+
+        & > a {
+            display: inline-block;
+            padding: 2rem 0;
+            width: 100%;
+            line-height: 1.65;
+            color: var(--white-color);
+        }
+
+        &:after {
+            display: none;
+        }
+    }
+
+    .navbar-item-title {
+        display: inline-block;
+        line-height: 1.65;
+        color: var(--white-color);
+        padding: 2rem 0;
+        width: 100%;
+    }
+
+    .menu-subnav-icon {
+        display: block;
+        position: absolute;
+        top: 2rem;
+        right: 0;
+        transform: translateY(10%);
+        color: #fff;
+        transform: none;
+        transition: all 0.4s ease-in-out;
+
+        &.rotate {
+            transform: rotate(180deg);
+        }
+    }
+
+    .sub-navbar {
+        visibility: visible;
+        position: initial;
+        background-color: var(--text-color);
+        color: var(--subnavbar-color-text);
+        opacity: 1;
+        padding: 0;
+        border: none;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.45s ease-in-out;
+
+        & a {
+            color: var(--subnavbar-color-text);
+        }
+
+        &.show-subnav {
+            max-height: 36rem;
+        }
+
+        & li:last-child a {
+            padding: 1.3rem 1.6rem 3.1rem 1.6rem;
+        }
+    }
+
+    .subnav-item {
+        padding: 1.3rem 1.6rem 1.3rem 1.6rem;
+
+        &:hover {
+            color: var(--white-color);
+        }
+
+        & + .subnav-item {
+            margin-top: 0;
+        }
+
+        &:last-child {
+            padding: 1.3rem 1.6rem 1.3rem 1.6rem;
+        }
+    }
+
+    .close-icon-wrapper {
+        padding: 2.4rem 3rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: rgba(255, 255, 255, 0.8);
+
+        &:hover {
+            color: rgba(255, 255, 255, 1);
+            cursor: pointer;
+        }
+    }
+
+    .close-icon {
+        display: block;
+        transition: all 0.2s ease-in-out;
+    }
+
+    .account-section {
+        position: relative;
+        display: block;
+        line-height: 1.65;
+        padding: 2rem 3rem;
+        width: 100%;
+        left: -5rem;
+        opacity: 0;
+        transition: all 0.5s ease-in-out;
+        transition-property: left, opacity;
+
+        & .account-link {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 1.3rem;
+            transition: color 0.2s ease-in-out;
+
+            &:hover {
+                color: var(--white-color);
+            }
+        }
+
+        &.show-account {
+            transition-delay: 0.1s;
+            left: 0;
+            opacity: 1;
+        }
+    }
+}
+
+//Mobile
+@media (max-width: 640px) {
+    .navbar {
+        width: calc(100vw - 6.5rem);
+        left: calc(6.5rem - 100vw);
+    }
+
+    .show {
+        left: 0;
+    }
+}
+
+@media (max-width: 300px) {
+    .sub-navbar {
+        min-width: 100%;
     }
 }

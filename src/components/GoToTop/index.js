@@ -1,18 +1,18 @@
-import { useEffect } from 'react';
+import React from 'react';
 import { useLocation } from 'react-router-dom';
 
 function GoToTop() {
     const routePath = useLocation();
 
-    const onTop = () => {
+    const onTop = React.useCallback(() => {
         window.scrollTo(0, 0);
-    };
+    }, []);
 
-    useEffect(() => {
+    React.useEffect(() => {
         onTop();
-    }, [routePath]);
+    }, [routePath, onTop]);
 
     return null;
 }
 
-export default GoToTop;
+export default React.memo(GoToTop);

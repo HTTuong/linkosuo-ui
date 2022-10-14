@@ -2,89 +2,143 @@ import classNames from 'classnames/bind';
 import Sidebar from '~/components/Sidebar';
 import classes from './Menu.module.scss';
 import GridProducts from '~/components/GridProducts';
-import { useState, useLayoutEffect, useRef } from 'react';
-import { useLocation } from 'react-router-dom';
-import PropTypes from 'prop-types';
+import Loading from '~/components/Loading';
+import Button from '~/components/Button';
+import Overlay from '~/layouts/StoreLayout/components/Overlay';
+import React from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import config from '~/config';
 
 const cx = classNames.bind(classes);
+const bodyELement = document.querySelector('body');
 
-function Menu({ data }) {
-    const headingRef = useRef();
+function Menu() {
+    const navigate = useNavigate();
     const pathRoute = useLocation();
-    const { types, description, menu, products } = data;
+    const headingRef = React.useRef();
 
-    const [menuList, setMenuList] = useState([]);
-    const [menuDescription, setMenuDescription] = useState('');
-    const [productList, setProductList] = useState(products);
-    const [sortedProductList, setSortedProductList] = useState([]);
+    const [menuList, setMenuList] = React.useState([]);
+    const [menuDescription, setMenuDescription] = React.useState([]);
+    const [productList, setProductList] = React.useState([]);
+    const [menuTitle, setMenuTitle] = React.useState('');
+    const [isLoading, setIsLoading] = React.useState(false);
+    const [colsNumber, setColsNumber] = React.useState(4);
+    const [openDiet, setOpenDiet] = React.useState(false);
 
-    const urlPathName = pathRoute.pathname.split('/')[2];
+    const type = pathRoute.pathname.split('/')[3];
+    const diet = pathRoute.pathname.split('/')[4] || '';
 
-    console.log(data);
+    React.useLayoutEffect(() => {
+        const fetchProducts = async () => {
+            const response = await axios.get(`http://192.168.0.101:3000/linkosuo-ui/collections/${type}/${diet}`);
+            return response;
+        };
 
-    useLayoutEffect(() => {
-        for (let type of types) {
-            if (urlPathName.includes(type)) {
-                let newProductList = [];
-                let newMenuList = [];
-                if (type === types[0]) {
-                    newProductList = products;
-                    newMenuList = menu[types[0]];
+        setIsLoading(true);
+
+        fetchProducts()
+            .then((response) => {
+                setMenuList(response.data.menu);
+                setProductList(response.data.products);
+                setMenuTitle(response.data.title);
+                if (response.data.description) {
+                    setMenuDescription(response.data.description);
                 } else {
-                    newProductList = products.filter((item) => item.type === type);
-                    newMenuList = menu[type];
+                    setMenuDescription('');
                 }
-                setProductList(newProductList);
-                setMenuList(newMenuList);
-                setMenuDescription(description[type]);
-                setSortedProductList([]);
+                setIsLoading(false);
+
+                if (bodyELement.clientWidth <= 768) {
+                    setColsNumber(2);
+                } else if (bodyELement.clientWidth <= 1180) {
+                    setColsNumber(3);
+                } else {
+                    setColsNumber(4);
+                }
+            })
+            .catch((error) => {
+                const errorObject = error.toJSON();
+                console.log(error.toJSON());
+                if (errorObject.status === 404) {
+                    navigate('/linkosuo-ui/*', { replace: true });
+                } else if (errorObject.status === null) {
+                    navigate('/linkosuo-ui/*', { replace: true });
+                } else {
+                    console.log(errorObject);
+                }
+            });
+    }, [type, diet, navigate]);
+
+    React.useEffect(() => {
+        bodyELement.classList.remove('disable-scrollbar');
+        setOpenDiet(false);
+    }, [pathRoute.pathname]);
+
+    React.useEffect(() => {
+        const changeColumsNumber = window.addEventListener('resize', () => {
+            if (bodyELement.clientWidth < 768) {
+                setColsNumber(2);
+            } else if (bodyELement.clientWidth <= 1180) {
+                setColsNumber(3);
+            } else {
+                setColsNumber(4);
             }
-        }
-    }, [urlPathName, products, description, types, menu]);
+        });
 
-    const handleChangeList = () => {
-        if (sortedProductList.length > 0) {
-            return sortedProductList;
-        } else {
-            return productList;
-        }
-    };
+        return () => {
+            bodyELement.removeEventListener('resize', changeColumsNumber);
+        };
+    }, []);
 
-    const menuTitle = urlPathName.split('-').join(' ');
+    const deleteOverlay = React.useCallback((event) => {
+        event.stopPropagation();
+        bodyELement.classList.remove('disable-scrollbar');
+        setOpenDiet(false);
+    }, []);
+
+    const renderDescription = React.useCallback(() => {
+        return menuDescription.map((description) => (
+            <span key={Math.random()} className={cx('description__item')}>
+                {description}
+            </span>
+        ));
+    }, [menuDescription]);
+
+    const navigateToTypeMenu = React.useCallback(() => {
+        navigate(`${config.routes.collections.collections}/${type}`);
+        headingRef.current.reset();
+    }, [type, navigate]);
 
     return (
-        <div className={cx('wrapper')}>
-            <header
-                className={cx('heading')}
-                ref={headingRef}
-                onClick={() => {
-                    setSortedProductList(productList);
-                    headingRef.current.reset();
-                }}
-            >
+        <div className={cx('wrapper', { loading: isLoading })}>
+            <header className={cx('heading')} ref={headingRef} onClick={navigateToTypeMenu}>
                 <h2 className={cx('heading__title')}>{menuTitle}</h2>
-                {menuDescription && (
-                    <div className={cx('description')}>
-                        {menuDescription.map((item, index) => (
-                            <span key={index} className={cx('description__item')}>
-                                {item.content}
-                            </span>
-                        ))}
+                {menuDescription && <div className={cx('description')}>{renderDescription()}</div>}
+            </header>
+            <div className={cx('menu-btn-section')}>
+                <span className={cx('menu-btn-section__title')}>{diet.split('-').join(' ')}</span>
+                <Button
+                    className={cx('menu-btn-section__btn')}
+                    title="Select special diet"
+                    onClick={() => {
+                        bodyELement.classList.add('disable-scrollbar');
+                        setOpenDiet(true);
+                    }}
+                />
+            </div>
+            <div className={cx('content')}>
+                <Sidebar menu={menuList} ref={headingRef} openDiet={openDiet} deleteOverlay={deleteOverlay} />
+                {!isLoading && (
+                    <div className={cx('product-list')}>
+                        <GridProducts products={productList} wrap cols={colsNumber} className={cx('animation')} />
                     </div>
                 )}
-            </header>
-            <div className={cx('content')}>
-                <Sidebar menu={menuList} products={productList} getProducts={setSortedProductList} ref={headingRef} />
-                <div className={cx('product-list')}>
-                    <GridProducts products={handleChangeList()} wrap className={cx('animation')} />
-                </div>
+                {isLoading && <Loading />}
             </div>
+            <Overlay active={openDiet} zIndex="4" inactiveFunction={deleteOverlay} />
         </div>
     );
 }
 
-Menu.propTypes = {
-    data: PropTypes.object,
-};
-
-export default Menu;
+export default React.memo(Menu);

@@ -1,5 +1,5 @@
 import classNames from 'classnames/bind';
-import { useState } from 'react';
+import React from 'react';
 import Button from '~/components/Button';
 import classes from './Contact.module.scss';
 
@@ -16,19 +16,24 @@ const INFORMATION_CONTENT = {
 };
 
 function Contact() {
-    const [name, setName] = useState('');
-    const [email, setEmail] = useState('');
-    const [message, setMessage] = useState('');
+    const [data, setData] = React.useState('');
+    const [name, setName] = React.useState('');
+    const [email, setEmail] = React.useState('');
+    const [message, setMessage] = React.useState('');
 
-    const [phoneNumber, setPhoneNumber] = useState('');
-    const [phoneNumberIsValid, setPhoneNumberIsValid] = useState(true);
+    const [phoneNumber, setPhoneNumber] = React.useState('');
+    const [phoneNumberIsValid, setPhoneNumberIsValid] = React.useState(true);
 
-    const handleChangeName = (event) => {
+    React.useLayoutEffect(() => {
+        setData(INFORMATION_CONTENT);
+    }, []);
+
+    const handleChangeName = React.useCallback((event) => {
         if (event.target.value.startsWith(' ')) {
             return;
         }
         setName(event.target.value);
-    };
+    }, []);
 
     const handleChangeEmail = (event) => {
         setEmail(event.target.value);
@@ -74,15 +79,15 @@ function Contact() {
     return (
         <div className={cx('wrapper')}>
             <div className={cx('heading')}>
-                <h2 className={cx('heading__title')}>{INFORMATION_CONTENT.heading}</h2>
+                <h2 className={cx('heading__title')}>{data.heading}</h2>
             </div>
             <div className={cx('information')}>
-                <span className={cx('information__item')}>{INFORMATION_CONTENT.info_1}</span>
-                <span className={cx('information__item')}>{INFORMATION_CONTENT.info_2}</span>
+                <span className={cx('information__item')}>{data.info_1}</span>
+                <span className={cx('information__item')}>{data.info_2}</span>
                 <div className={cx('information__seperate')}></div>
-                <span className={cx('information__item')}>{INFORMATION_CONTENT.info_3}</span>
-                <span className={cx('information__item--light')}>{INFORMATION_CONTENT.email}</span>
-                <span className={cx('information__item--light')}>{INFORMATION_CONTENT.workingTime}</span>
+                <span className={cx('information__item')}>{data.info_3}</span>
+                <span className={cx('information__item--light')}>{data.email}</span>
+                <span className={cx('information__item--light')}>{data.workingTime}</span>
             </div>
             <form className={cx('form')} onSubmit={handleSubmitForm}>
                 <div className={cx('section')}>
@@ -123,4 +128,4 @@ function Contact() {
     );
 }
 
-export default Contact;
+export default React.memo(Contact);

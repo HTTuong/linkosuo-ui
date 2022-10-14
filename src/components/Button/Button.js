@@ -1,3 +1,4 @@
+import React from 'react';
 import classNames from 'classnames/bind';
 import classes from './Button.module.scss';
 import { Link } from 'react-router-dom';
@@ -49,4 +50,4 @@ Button.propTypes = {
     passProps: PropTypes.array,
 };
 
-export default Button;
+export default React.memo(Button);

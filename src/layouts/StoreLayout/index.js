@@ -1,4 +1,3 @@
-import MenuLayout from './MenuLayout';
-import OnlyHeaderStoreLayout from './OnlyHeaderStoreLayout';
+import DefaultLayout from './DefaultLayout';
 
-export { MenuLayout, OnlyHeaderStoreLayout };
+export { DefaultLayout };

@@ -1,3 +1,4 @@
+import React from 'react';
 import classNames from 'classnames/bind';
 import classes from './Footer.module.scss';
 import Address from './components/Address';
@@ -28,4 +29,4 @@ FooterBlock.propTypes = {
     categories: PropTypes.bool,
 };
 
-export default FooterBlock;
+export default React.memo(FooterBlock);

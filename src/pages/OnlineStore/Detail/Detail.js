@@ -1,25 +1,29 @@
 import classNames from 'classnames/bind';
 import classes from './Detail.module.scss';
-import { useParams } from 'react-router-dom';
-import { useLayoutEffect, useState, useContext } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
+import React from 'react';
 import Button from '~/components/Button';
+import Loading from '~/components/Loading';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMinus, faPlus } from '@fortawesome/free-solid-svg-icons';
 import CartContext from '~/store/context';
+import axios from 'axios';
 
 const cx = classNames.bind(classes);
 
-function Detail({ data }) {
-    const { productId } = useParams();
-    const ctx = useContext(CartContext);
-    const [currentProduct, setCurrentProduct] = useState(false);
-    const [amount, setAmount] = useState(1);
+function Detail() {
+    const navigate = useNavigate();
+    const pathRoute = useLocation();
+    const ctx = React.useContext(CartContext);
+    const [currentProduct, setCurrentProduct] = React.useState(false);
+    const [isLoading, setIsLoading] = React.useState(true);
+    const [amount, setAmount] = React.useState(1);
 
-    const addOne = () => {
+    const addOne = React.useCallback(() => {
         setAmount((prev) => prev + 1);
-    };
+    }, []);
 
-    const minusOne = () => {
+    const minusOne = React.useCallback(() => {
         setAmount((prev) => {
             if (prev === 1) {
                 return 1;
@@ -27,7 +31,7 @@ function Detail({ data }) {
                 return prev - 1;
             }
         });
-    };
+    }, []);
 
     const handleUpdateImage = () => {
         if (currentProduct === false) {
@@ -37,16 +41,30 @@ function Detail({ data }) {
         }
     };
 
-    useLayoutEffect(() => {
-        const desiredProduct = data.products.find((item) => item.alt === productId);
-        setCurrentProduct(desiredProduct);
-    }, [data, productId]);
+    React.useLayoutEffect(() => {
+        setIsLoading(true);
+        axios
+            .get('http://192.168.0.101:3000' + pathRoute.pathname)
+            .then((product) => {
+                setCurrentProduct(product.data.product);
+                setIsLoading(false);
+            })
+            .catch((error) => {
+                console.log(error);
+                if (error.message === 'Network Error') {
+                    navigate('/linkosuo-ui/*', { replace: true }); // server down
+                }
+                if (error.response.status === 404) {
+                    navigate('/linkosuo-ui/*', { replace: true }); // not found
+                }
+            });
+    }, [pathRoute, navigate]);
 
     const handleAddToCart = (event) => {
         event.preventDefault();
 
         const newProduct = {
-            id: currentProduct.alt,
+            _id: currentProduct._id,
             name: currentProduct.name,
             price: currentProduct.price,
             total: +currentProduct.price,
@@ -71,38 +89,42 @@ function Detail({ data }) {
     };
 
     return (
-        <div className={cx('wrapper')}>
+        <div className={cx('wrapper', { loading: isLoading })}>
             <div className={cx('inner')}>
-                <div className={cx('product-image-section')}>
-                    <img src={handleUpdateImage()} alt={currentProduct.alt} className={cx('product-image')} />
-                </div>
-                <div className={cx('product-info-section')}>
-                    <h1 className={cx('product-name')}>{currentProduct.name}</h1>
-                    <span className={cx('product-price')}>&euro; {currentProduct.price}</span>
-                    <form className={cx('product-form')} onSubmit={handleAddToCart}>
-                        {/* <div className={cx('product-size')}></div> */}
-                        <div className={cx('product-amount')}>
-                            <label className={cx('product-amount')}>Amount:</label>
-                            <div className={cx('product-amount-input')}>
-                                <div className={cx('product-modify')} onClick={minusOne}>
-                                    <FontAwesomeIcon icon={faMinus} className={cx('product-modifier')} />
-                                </div>
-                                <div className={cx('product-amount-value')}>{amount}</div>
-                                <div className={cx('product-modify')} onClick={addOne}>
-                                    <FontAwesomeIcon icon={faPlus} className={cx('product-modifier')} />
-                                </div>
-                            </div>
+                {!isLoading && (
+                    <>
+                        <div className={cx('product-image-section')}>
+                            <img src={handleUpdateImage()} alt={currentProduct.alt} className={cx('product-image')} />
                         </div>
-                        <Button title="Add to basket" className={cx('product-btn')} type="submit" />
-                    </form>
-                    <div className={cx('product-description')}>
-                        <p>{currentProduct.description}</p>
-                    </div>
-                    <div className={cx('diet-tags')}>{dietTags()}</div>
-                </div>
+                        <div className={cx('product-info-section')}>
+                            <h1 className={cx('product-name')}>{currentProduct.name}</h1>
+                            <span className={cx('product-price')}>&euro; {currentProduct.price}</span>
+                            <form className={cx('product-form')} onSubmit={handleAddToCart}>
+                                <div className={cx('product-amount')}>
+                                    <label className={cx('product-amount')}>Amount:</label>
+                                    <div className={cx('product-amount-input')}>
+                                        <div className={cx('product-modify')} onClick={minusOne}>
+                                            <FontAwesomeIcon icon={faMinus} className={cx('product-modifier')} />
+                                        </div>
+                                        <div className={cx('product-amount-value')}>{amount}</div>
+                                        <div className={cx('product-modify')} onClick={addOne}>
+                                            <FontAwesomeIcon icon={faPlus} className={cx('product-modifier')} />
+                                        </div>
+                                    </div>
+                                </div>
+                                <Button title="Add to basket" className={cx('product-btn')} type="submit" />
+                            </form>
+                            <div className={cx('product-description')}>
+                                <p>{currentProduct.description}</p>
+                            </div>
+                            <div className={cx('diet-tags')}>{dietTags()}</div>
+                        </div>
+                    </>
+                )}
+                {isLoading && <Loading />}
             </div>
         </div>
     );
 }
 
-export default Detail;
+export default React.memo(Detail);

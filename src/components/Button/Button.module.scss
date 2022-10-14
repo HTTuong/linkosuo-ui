@@ -7,3 +7,10 @@
     text-transform: uppercase;
     text-align: center;
 }
+
+//Mobile
+@media (max-width: 300px) {
+    .wrapper {
+        padding: 1.4rem 2rem;
+    }
+}

@@ -1,0 +1,15 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.content {
+    margin-top: var(--header-height);
+}
+
+//Mobile
+@media (max-width: 768px) {
+    .content {
+        margin-top: 0;
+    }
+}

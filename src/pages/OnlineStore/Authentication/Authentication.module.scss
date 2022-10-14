@@ -1,0 +1,89 @@
+.wrapper {
+    width: 100%;
+    height: calc(100vh - (var(--header-height)));
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title {
+    font-size: 2.3rem;
+    font-weight: 500;
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+.subtitle {
+    font-size: 1.3rem;
+    margin-bottom: 24px;
+}
+
+.message-section {
+    width: 400px;
+    background: #e4c4c4;
+    color: #cb2b2b;
+    margin-bottom: 20px;
+    padding: 10px 20px;
+}
+
+.success {
+    text-align: center;
+    background: #e0f2d6;
+    color: #2c8861;
+}
+
+.message {
+    font-size: 1.3rem;
+    font-weight: 300;
+    line-height: 1.8;
+}
+
+.form__forgot-password {
+    margin-top: 18px;
+    font-size: 1.3rem;
+    color: var(--text-color-light);
+
+    transition: color 0.2s ease-in-out;
+
+    &:hover {
+        cursor: pointer;
+        color: var(--text-color);
+    }
+}
+
+.register {
+    margin-top: 10px;
+    margin-bottom: 32px;
+    display: flex;
+}
+
+.register__title {
+    font-size: 1.3rem;
+    color: var(--text-color-light);
+}
+
+.register__link {
+    margin-left: 4px;
+    font-size: 1.3rem;
+    cursor: pointer;
+    transition: color 0.2s ease-in-out;
+
+    &:hover {
+        color: var(--primary-color);
+    }
+}
+
+//Mobile
+@media (max-width: 640px) {
+    .inner {
+        width: 100%;
+        padding: 0 2rem;
+    }
+}

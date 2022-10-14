@@ -1,7 +1,7 @@
 .quotes {
     width: 100%;
     border-top: 1px solid var(--border-color);
-    padding: 80px 0;
+    padding: 8rem 0;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -52,5 +52,25 @@
     &.active {
         border-color: var(--text-color);
         background-color: var(--text-color);
+    }
+}
+
+//Tablet
+@media (max-width: 1068px) {
+    .quotes {
+        padding: 5rem 3rem;
+    }
+}
+
+//Mobile
+@media (max-width: 768px) {
+    .quote {
+        width: 100%;
+    }
+}
+
+@media (max-width: 300px) {
+    .quote {
+        font-size: 1.6rem;
     }
 }

@@ -1,3 +1,4 @@
+import React from 'react';
 import classNames from 'classnames/bind';
 import classes from '../Footer.module.scss';
 import Button from '~/components/Button';
@@ -40,4 +41,4 @@ function Address() {
     );
 }
 
-export default Address;
+export default React.memo(Address);

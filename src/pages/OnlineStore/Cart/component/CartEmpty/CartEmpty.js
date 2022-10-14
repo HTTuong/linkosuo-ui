@@ -9,7 +9,7 @@ function CartEmpty() {
     return (
         <div className={cx('cart-empty')}>
             <span className={cx('cart-empty__title')}>Your shopping cart is empty</span>
-            <Button className={cx('cart-empty__btn')} title="For shoppping" to={config.routes.store.allproduct} />
+            <Button className={cx('cart-empty__btn')} title="For shoppping" to={config.routes.collections.allproduct} />
         </div>
     );
 }

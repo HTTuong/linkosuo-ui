@@ -1,14 +1,14 @@
 import classNames from 'classnames/bind';
 import classes from './Quotes.module.scss';
-import { useState, useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 const cx = classNames.bind(classes);
 
 function Quotes({ quotes }) {
-    const [selectedNumber, setSelectedNumber] = useState(0);
+    const [selectedNumber, setSelectedNumber] = React.useState(0);
 
-    useEffect(() => {
+    React.useEffect(() => {
         const loopQuote = setTimeout(() => {
             const newNumber = (selectedNumber + 1) % quotes.length;
             setSelectedNumber(newNumber);

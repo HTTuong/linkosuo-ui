@@ -1,3 +1,4 @@
+import React from 'react';
 import classNames from 'classnames/bind';
 import classes from '../Footer.module.scss';
 
@@ -20,4 +21,4 @@ function About() {
     );
 }
 
-export default About;
+export default React.memo(About);

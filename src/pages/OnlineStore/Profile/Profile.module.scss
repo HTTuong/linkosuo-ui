@@ -1,0 +1,253 @@
+.wrapper {
+    padding: 50px 0;
+}
+
+.inner {
+    padding: 0 80px;
+    width: 100%;
+}
+
+.heading {
+    margin: 30px 0;
+}
+
+.heading__title {
+    font-weight: 500;
+}
+
+.heading__name {
+    margin-top: 20px;
+    font-weight: 400;
+    font-size: 1.4rem;
+    color: var(--text-color);
+}
+
+.order__title {
+    font-weight: 400;
+}
+
+.order__heading {
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.order__empty-title {
+    margin-top: 34px;
+    font-weight: 400;
+}
+
+.orders__info-section {
+    padding: 28px 24px 0 24px;
+}
+
+.orders__item {
+    margin-top: 12px;
+    background-color: #f5f5f5;
+}
+
+.orders__item-heading {
+    display: flex;
+    margin-bottom: 6px;
+}
+
+.orders__item-title {
+    width: 60px;
+    font-size: 1.4rem;
+    padding: 0 10px;
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    text-align: center;
+}
+
+.orders__item-id {
+    flex: 1;
+    margin-left: 8px;
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+.orders__item-time {
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+.orders__products-item {
+    border-top: 1px solid var(--border-color);
+    padding: 10px 0;
+    display: flex;
+    align-items: center;
+}
+
+.orders__products-img {
+    display: inline-block;
+    width: 100px;
+}
+
+.orders__products-info {
+    padding: 0 14px;
+    flex: 1;
+}
+
+.orders__products-name {
+    margin-bottom: 10px;
+    font-weight: 500;
+    font-size: 1.4rem;
+}
+
+.orders__products-price {
+    font-weight: 400;
+    font-size: 1.3rem;
+    color: var(--text-color);
+    margin-bottom: 10px;
+}
+
+.orders__products-quantity {
+    font-weight: 400;
+    font-size: 1.3rem;
+    color: var(--text-color);
+}
+
+.orders__products-total-price {
+    font-weight: 400;
+    font-size: 1.3rem;
+    color: var(--text-color);
+}
+
+.logout-btn {
+    display: inline-block;
+    color: var(--white-color);
+    background-color: var(--primary-color);
+}
+
+.orders__total-section {
+    padding: 12px 24px;
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+}
+
+.orders__total-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.orders__total {
+    display: flex;
+}
+
+.orders__total-title {
+    font-weight: 500;
+    font-size: 1.6rem;
+    margin-right: 6px;
+}
+
+.orders__total-price {
+    font-weight: 500;
+    font-size: 1.6rem;
+}
+
+.orders__total-subtitle {
+    padding: 4px 0;
+    font-size: 1.4rem;
+    color: var(--text-color);
+}
+
+.orders__pickup-info {
+    display: flex;
+    align-items: center;
+    padding: 0.3rem 0;
+}
+
+.orders__pickup-info-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.orders__pickup-info-value {
+    margin-left: 0.6rem;
+    font-size: 1.3rem;
+    font-weight: 300;
+}
+
+.loading-section {
+    padding: 8rem 0;
+}
+
+.clear {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+//Tablet
+@media (max-width: 1068px) {
+    .orders__total-subtitle {
+        display: none;
+    }
+}
+
+//Mobile
+@media (max-width: 640px) {
+    .inner {
+        padding: 0 2rem;
+        width: 100%;
+    }
+
+    .orders__item-time {
+        display: none;
+    }
+
+    .orders__pickup-info {
+        align-items: unset;
+    }
+}
+
+@media (max-width: 300px) {
+    .orders__item-heading {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 6px;
+    }
+
+    .orders__item-id {
+        margin-left: 0;
+        margin-top: 8px;
+    }
+
+    .orders__products-total-price {
+        display: none;
+    }
+
+    .orders__info-section {
+        padding: 28px 12px 0 12px;
+    }
+
+    .orders__total-section {
+        padding: 12px;
+        flex-direction: column-reverse;
+    }
+
+    .orders__products-info {
+        padding: 0 0 0 14px;
+    }
+
+    .orders__products-img {
+        width: 9rem;
+    }
+
+    .orders__products-name {
+        font-size: 1.2rem;
+        margin-bottom: 6px;
+    }
+
+    .orders__products-price {
+        font-size: 1.2rem;
+        margin-bottom: 6px;
+    }
+
+    .orders__total-price,
+    .orders__total-title {
+        font-size: 1.4rem;
+    }
+}

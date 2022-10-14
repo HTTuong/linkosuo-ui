@@ -10,7 +10,12 @@
     line-height: 1.65;
 }
 
+.close-icon {
+    display: none;
+}
+
 .menu-item {
+    display: block;
     font-size: 1.3rem;
     font-weight: 400;
     margin-bottom: 12px;
@@ -38,5 +43,107 @@
         height: 6px;
         vertical-align: middle;
         border-radius: 50%;
+    }
+}
+
+//Tablet
+@media (max-width: 1068px) {
+    .sidebar {
+        // display: block;
+        position: fixed;
+        width: 40rem;
+        margin: 0;
+        top: 0;
+        right: -40rem;
+        height: 100%;
+        background-color: var(--white-color);
+        z-index: 5;
+        box-shadow: none;
+        transition: all 0.4s ease-in-out;
+    }
+
+    .show {
+        right: 0;
+        box-shadow: 2px 0 10px #36363633, -2px 0 10px #36363633;
+    }
+
+    .sidebar-heading {
+        position: relative;
+        height: 7rem;
+        padding: 0 3rem;
+        box-shadow: 0 -1px rgba(#ddd, 0.6) inset;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+    }
+
+    .title {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 2rem;
+    }
+
+    .close-icon-wrapper {
+        float: right;
+        color: #000;
+        padding: 0.6rem;
+    }
+
+    .close-icon {
+        display: block;
+        font-size: 2rem;
+    }
+
+    .menu {
+        margin-top: 3rem;
+        padding: 0 3rem;
+        position: relative;
+        right: -5rem;
+        opacity: 0;
+        transition: all 0.5s ease-in-out;
+        transition-property: right, opacity;
+    }
+
+    .show-menu {
+        transition-delay: 0.1s;
+        right: 0;
+        opacity: 1;
+    }
+
+    .menu-item {
+        padding: 2rem 0;
+        width: 100%;
+        color: var(--text-color);
+        margin-bottom: 0;
+        border-bottom: 1px solid var(--border-color);
+    }
+}
+
+//Mobile
+@media (max-width: 640px) {
+    .sidebar {
+        width: calc(100vw - 6.5rem);
+        right: calc(6.5rem - 100vw);
+    }
+
+    .show {
+        right: 0;
+        box-shadow: 2px 0 10px #36363633, -2px 0 10px #36363633;
+    }
+}
+
+@media (max-width: 300px) {
+    .title {
+        font-size: 1.6rem;
+    }
+
+    .sidebar-heading {
+        padding: 0 2rem;
+    }
+
+    .menu {
+        padding: 0 2rem;
     }
 }

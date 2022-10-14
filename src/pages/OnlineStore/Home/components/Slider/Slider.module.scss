@@ -1,5 +1,8 @@
 .slider {
     position: relative;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
 
     &::after {
         content: '';
@@ -24,13 +27,13 @@
 }
 
 .slider-image {
-    width: 100%;
+    // width: 100%;
     display: block;
     height: calc(100vh - (var(--header-height)));
     background-image: url('https://cdn.shopify.com/s/files/1/0544/2600/9779/files/Linkosuo_verkkokauppa_juhlat_2200x.jpg?v=1641275945');
     background-repeat: no-repeat;
     background-size: cover;
-    z-index: 1;
+    z-index: 0;
 }
 
 .introduction {
@@ -78,4 +81,22 @@
     opacity: 1;
     visibility: visible;
     transform: translateY(5%);
+}
+
+//Tablet
+@media (max-width: 768px) {
+    .introduction {
+        width: 100%;
+    }
+
+    .introduction-title {
+        font-size: 4.4rem;
+    }
+}
+
+//Mobile
+@media (max-width: 300px) {
+    .introduction-title {
+        font-size: 4rem;
+    }
 }

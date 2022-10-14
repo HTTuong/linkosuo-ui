@@ -108,3 +108,47 @@
     font-weight: 400;
     color: red;
 }
+
+//Tablet
+@media (max-width: 1068px) {
+    .form {
+        margin-top: 12px;
+        margin-bottom: 8rem;
+    }
+}
+
+//Mobile
+@media (max-width: 768px) {
+    .wrapper {
+        width: 100%;
+        padding: 0 5rem;
+    }
+}
+
+@media (max-width: 640px) {
+    .wrapper {
+        padding: 0 2.4rem;
+    }
+
+    .heading__title {
+        padding: 3.5rem 0;
+    }
+
+    .section {
+        flex-wrap: wrap;
+
+        & + .input-item {
+            margin-top: 1.5rem;
+        }
+    }
+
+    .form {
+        margin-bottom: 6rem;
+    }
+
+    .input-item {
+        & + .input-item {
+            margin: 0;
+        }
+    }
+}

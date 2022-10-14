@@ -11,5 +11,19 @@
         color: var(--text-color);
         font-size: 1.3rem;
         font-weight: 500;
+        text-align: center;
+    }
+}
+
+// Mobile
+@media (max-width: 768px) {
+    .policies {
+        padding: 13px 13px;
+        position: initial;
+
+        &__order {
+            line-height: 1.7;
+            font-size: 1.2rem;
+        }
     }
 }

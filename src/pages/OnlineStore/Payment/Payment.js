@@ -1,3 +1,4 @@
+import React from 'react';
 import classNames from 'classnames/bind';
 import classes from './Payment.module.scss';
 import config from '~/config';
@@ -15,4 +16,4 @@ function Payment() {
     );
 }
 
-export default Payment;
+export default React.memo(Payment);

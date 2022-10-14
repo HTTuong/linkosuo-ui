@@ -6,15 +6,14 @@ import Quotes from './components/Quotes';
 import Slider from './components/Slider';
 import ShowProducts from './components/ShowProducts';
 import ProductSection from './components/ProductSection';
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import Loading from '~/components/Loading';
+import axios from 'axios';
 
 const cx = classNames.bind(classes);
+const bodyELement = document.querySelector('body');
 
-const SWEET_OPTIONS = config.products.SWEET_OPTIONS;
-const SALTY_OPTIONS = config.products.SALTY_OPTIONS;
-const CAKES = config.products.SWEETS_DATA.products.filter((item) => item.type === 'cake').slice(0, 4);
-const PIES = config.products.SWEETS_DATA.products.filter((item) => item.type === 'pie').slice(0, 4);
-const SALADS = config.products.SALTY_DATA.products.filter((item) => item.type === 'salad').slice(0, 4);
-const EGG_ROLLS = config.products.SALTY_DATA.products.filter((item) => item.type === 'roll').slice(0, 4);
 const QUOTES = config.quotes;
 
 const PRODUCT_SECTION = {
@@ -24,38 +23,75 @@ const PRODUCT_SECTION = {
     content:
         'In addition to sweet cakes, our traditional sandwich cakes are a popular part of the party table. These classic products are all lactose free.',
     titleLink: 'See all sandwich cakes',
-    link: config.routes.store.sandwich,
+    link: config.routes.collections.sandwich,
 };
 
 function Home() {
+    const navigate = useNavigate();
+
+    const [productsList, setProductsList] = React.useState([]);
+    const [isLoading, setIsLoading] = React.useState(false);
+
+    React.useLayoutEffect(() => {
+        setIsLoading(true);
+
+        const getProductsHomePage = async () => {
+            const response = await axios.get('http://192.168.0.101:3000/linkosuo-ui');
+            return response;
+        };
+
+        getProductsHomePage()
+            .then((response) => {
+                return response.data.products;
+            })
+            .then((products) => {
+                setProductsList(products);
+                setIsLoading(false);
+            })
+            .catch((error) => {
+                console.log(error);
+                if (error.message === 'Network Error') {
+                    navigate('/linkosuo-ui/*', { replace: true }); // server down
+                }
+                if (error.response.status === 404) {
+                    navigate('/linkosuo-ui/*', { replace: true }); // not found
+                }
+            });
+    }, [navigate]);
+
+    const changeSliderImageHandler = () => {
+        if (bodyELement.clientWidth < 768) {
+            return images.slider_mobile;
+        } else {
+            return images.slider;
+        }
+    };
+
     return (
-        <div className={cx('wrapper')}>
-            <Slider image={images.slider} title="for summer parties" subTitle="Order catering" />
-            <ShowProducts
-                options={SWEET_OPTIONS}
-                productsList1={CAKES}
-                productsList2={PIES}
-                title="For sweet treats"
-                buttonLink={config.routes.store.home}
-            />
-            <ProductSection
-                image={PRODUCT_SECTION.image}
-                subTitle={PRODUCT_SECTION.subTitle}
-                title={PRODUCT_SECTION.title}
-                content={PRODUCT_SECTION.content}
-                titleLink={PRODUCT_SECTION.titleLink}
-                to={PRODUCT_SECTION.link}
-            />
-            <ShowProducts
-                options={SALTY_OPTIONS}
-                productsList1={SALADS}
-                productsList2={EGG_ROLLS}
-                title="Popular salty"
-                buttonLink={config.routes.store.home}
-            />
-            <Quotes quotes={QUOTES} />
+        <div className={cx('wrapper', { loading: isLoading })}>
+            {!isLoading && (
+                <>
+                    <Slider image={changeSliderImageHandler()} title="for summer parties" subTitle="Order catering" />
+                    <ShowProducts options={['cakes', 'pies']} productsList={productsList} title="For sweet treats" />
+                    <ProductSection
+                        image={PRODUCT_SECTION.image}
+                        subTitle={PRODUCT_SECTION.subTitle}
+                        title={PRODUCT_SECTION.title}
+                        content={PRODUCT_SECTION.content}
+                        titleLink={PRODUCT_SECTION.titleLink}
+                        to={PRODUCT_SECTION.link}
+                    />
+                    <ShowProducts
+                        options={['salads', 'omelet-rolls']}
+                        productsList={productsList}
+                        title="Popular salty"
+                    />
+                    <Quotes quotes={QUOTES} />
+                </>
+            )}
+            {isLoading && <Loading />}
         </div>
     );
 }
 
-export default Home;
+export default React.memo(Home);

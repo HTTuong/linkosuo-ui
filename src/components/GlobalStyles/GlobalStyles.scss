@@ -4,24 +4,33 @@
 @import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Rokkitt:wght@100;200;300;400&display=swap');
 
+@font-face {
+    font-family: OrganikaScript;
+    src: url('/assets/fonts/MikaMelvas-OrganikaScript.otf');
+    font-weight: 400;
+}
+
 :root {
-    // colors
+    // size
     --header-logo-width: 170px;
-    --header-border-color: #ddd;
-    --header-light-text-color: #6a6a6a;
     --header-height: 116px;
-    --header-only-navbar: 70.5px;
+    --header-only-navbar: 7.05rem;
     --header-only-policy: 45.5px;
     --header-padding-sides-item: 21px;
     --header-subnavbar-min-width: 200px;
     --header-subnavbar-max-width: 270px;
-    --footer-text-color: #6a6a6a;
 
+    // colors
+    --header-border-color: #ddd;
+    --header-light-text-color: #6a6a6a;
+    --footer-text-color: #6a6a6a;
     --primary-color: #e7ad1a;
     --text-color: #1c1b1b;
     --white-color: #fff;
     --text-color-light: #6a6a6a;
     --border-color: #ddd;
+    --subnavbar-color-text: rgba(255, 255, 255, 0.5);
+    --dot-cart-color: #ff253a;
 }
 
 * {
@@ -42,6 +51,7 @@ body {
     overflow-y: overlay;
 }
 
+// Disable scrollbar
 .disable-scrollbar {
     overflow-y: hidden;
 }
@@ -52,6 +62,20 @@ input,
     background: none;
     outline: none;
     border: none;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+    -webkit-text-fill-color: var(--text-color);
+    --webkit-box-shadow: 0 0 0px 1000px #000 inset;
+    transition: background-color 5000s ease-in-out 0s;
 }
 
 ul {
@@ -68,7 +92,7 @@ a {
 // Scrollbar
 html *::-webkit-scrollbar {
     border-radius: 0;
-    width: 8px;
+    width: 6px;
 }
 
 html *::-webkit-scrollbar-thumb {
@@ -79,12 +103,4 @@ html *::-webkit-scrollbar-thumb {
 html *::-webkit-scrollbar-track {
     border-radius: 0;
     background-color: rgba(0, 0, 0, 0);
-}
-
-// Fonts
-
-@font-face {
-    font-family: OrganikaScript;
-    src: url('/assets/fonts/MikaMelvas-OrganikaScript.otf');
-    font-weight: 400;
 }

@@ -3,54 +3,54 @@ import config from '.';
 export const NAVBAR_ITEMS = [
     {
         title: 'Sweet',
-        to: config.routes.store.sweet,
+        to: config.routes.collections.sweet,
         children: [
             {
                 title: 'Cakes',
-                to: config.routes.store.cake,
+                to: config.routes.collections.cake,
             },
             {
                 title: 'Pies',
-                to: config.routes.store.pie,
+                to: config.routes.collections.pies,
             },
             {
                 title: 'Coffee cakes and buns',
-                to: config.routes.store.buns,
+                to: config.routes.collections.buns,
             },
         ],
     },
     {
         title: 'Salty',
-        to: config.routes.store.salty,
+        to: config.routes.collections.salty,
         children: [
             {
                 title: 'Salads',
-                to: config.routes.store.salad,
+                to: config.routes.collections.salads,
             },
             {
                 title: 'Sandwich cakes',
-                to: config.routes.store.sandwich,
+                to: config.routes.collections.sandwich,
             },
             {
                 title: 'Round roasts',
-                to: config.routes.store.roast,
+                to: config.routes.collections.roast,
             },
             {
                 title: 'Egg rolls',
-                to: config.routes.store.roll,
+                to: config.routes.collections.roll,
             },
         ],
     },
     {
         title: 'Sauces and spices',
-        to: config.routes.store.sauce,
+        to: config.routes.collections.sauce,
     },
     {
         title: 'All products',
-        to: config.routes.store.allproduct,
+        to: config.routes.collections.allproduct,
     },
     {
         title: 'Contact information',
-        to: config.routes.store.contact,
+        to: config.routes.pages.contact,
     },
 ];

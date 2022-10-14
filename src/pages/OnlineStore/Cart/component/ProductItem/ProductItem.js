@@ -1,6 +1,6 @@
 import classNames from 'classnames/bind';
 import classes from './ProductItem.module.scss';
-import { useContext } from 'react';
+import React from 'react';
 import CartContext from '~/store/context';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMinus, faPlus } from '@fortawesome/free-solid-svg-icons';
@@ -8,11 +8,11 @@ import { faMinus, faPlus } from '@fortawesome/free-solid-svg-icons';
 const cx = classNames.bind(classes);
 
 function ProductItem({ item }) {
-    const ctx = useContext(CartContext);
+    const ctx = React.useContext(CartContext);
 
     const addProduct = () => {
         const newProduct = {
-            id: item.id,
+            _id: item._id,
             name: item.name,
             price: item.price,
             total: +item.price,
@@ -24,7 +24,7 @@ function ProductItem({ item }) {
 
     const removeProduct = () => {
         const newProduct = {
-            id: item.id,
+            _id: item._id,
             name: item.name,
             price: item.price,
             total: +item.price,
@@ -36,7 +36,7 @@ function ProductItem({ item }) {
 
     const deleteProduct = () => {
         const newProduct = {
-            id: item.id,
+            _id: item._id,
             name: item.name,
             price: item.price,
             total: +item.total,
@@ -46,17 +46,18 @@ function ProductItem({ item }) {
         ctx.handleDeleteProduct(newProduct);
     };
 
-    const handleCheckNumber = () => {
+    const handleCheckNumber = React.useCallback(() => {
         if (Number.isInteger(item.total)) {
             return item.total;
         } else {
             return item.total.toFixed(2);
         }
-    };
+    }, [item.total]);
 
     return (
         <div className={cx('product-item')}>
             <img src={item.image} alt={item.name} className={cx('product-image')} />
+
             <div className={cx('product-info')}>
                 <h3 className={cx('product-name')}>{item.name}</h3>
                 <span className={cx('product-price')}>{item.price}&euro;</span>
@@ -75,6 +76,7 @@ function ProductItem({ item }) {
                     Delete
                 </span>
             </div>
+
             <div className={cx('product-total-section')}>
                 <span className={cx('product-total-price')}>{handleCheckNumber()}&euro;</span>
             </div>
@@ -82,4 +84,4 @@ function ProductItem({ item }) {
     );
 }
 
-export default ProductItem;
+export default React.memo(ProductItem);

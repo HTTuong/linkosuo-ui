@@ -1,0 +1,51 @@
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: linear-gradient(to top, rgba(4, 4, 4, 0.65), rgba(54, 54, 54, 0.2));
+    z-index: 3;
+}
+
+.modal-container {
+    height: 240px;
+    max-width: 360px;
+    background-color: var(--white-color);
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-title {
+    font-weight: 500;
+    font-size: 2.4rem;
+}
+
+.modal-subtitle {
+    margin-top: 6px;
+    font-weight: 300;
+    font-size: 1.6rem;
+    margin-bottom: 30px;
+}
+
+.modal-btn {
+    width: 100%;
+    font-size: 1.6rem;
+    color: var(--white-color);
+    background-color: var(--primary-color);
+    border-radius: 4px;
+    cursor: pointer;
+}

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import React from 'react';
 import classNames from 'classnames/bind';
 import classes from './Slider.module.scss';
 import Button from '~/components/Button';
@@ -8,9 +8,9 @@ import config from '~/config';
 const cx = classNames.bind(classes);
 
 function Slider({ image, title, subTitle }) {
-    const [animateIntro, setAnimateIntro] = useState(false);
+    const [animateIntro, setAnimateIntro] = React.useState(false);
 
-    useEffect(() => {
+    React.useEffect(() => {
         const animateIntro = setTimeout(() => {
             setAnimateIntro(true);
         }, 600);
@@ -29,7 +29,7 @@ function Slider({ image, title, subTitle }) {
                 <Button
                     className={cx('introduction-btn', { animation: animateIntro })}
                     title="Check out the products"
-                    to={config.routes.store.spring}
+                    to={config.routes.collections.event}
                 />
             </div>
         </div>

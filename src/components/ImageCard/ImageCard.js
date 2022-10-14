@@ -1,3 +1,4 @@
+import React from 'react';
 import classNames from 'classnames/bind';
 import classes from './ImageCard.module.scss';
 import { Link } from 'react-router-dom';
@@ -6,7 +7,7 @@ import PropTypes from 'prop-types';
 
 const cx = classNames.bind(classes);
 
-function ImageCard({ to, href, price, className, src, alt, name, ...passProps }) {
+function ImageCard({ to, href, price, className, src, alt, name, lastviewwidth, cols, ...passProps }) {
     const [hover, setHover] = useState(false);
     let Comp = 'div';
 
@@ -22,7 +23,13 @@ function ImageCard({ to, href, price, className, src, alt, name, ...passProps })
         Comp = 'a';
     }
 
-    const classCard = cx('wrapper', { [className]: className });
+    const classCard = cx('wrapper', {
+        [className]: className,
+        'col-1-4': cols === 4,
+        'col-1-3': cols === 3,
+        'col-1-2': cols === 2,
+        'width-250': lastviewwidth,
+    });
 
     const handleChangeImage = () => {
         let image = src.image_1;
@@ -58,4 +65,4 @@ ImageCard.propTypes = {
     passProps: PropTypes.array,
 };
 
-export default ImageCard;
+export default React.memo(ImageCard);

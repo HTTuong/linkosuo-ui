@@ -1,15 +1,15 @@
-import { useState, useEffect, useCallback } from 'react';
+import React from 'react';
 
 function useScrollAnimation(scrollCoordinateY) {
-    const [animation, setAnimation] = useState(false);
+    const [animation, setAnimation] = React.useState(false);
 
-    const checkToAnimate = useCallback(() => {
+    const checkToAnimate = React.useCallback(() => {
         if (window.scrollY >= scrollCoordinateY) {
             setAnimation(true);
         }
     }, [scrollCoordinateY]);
 
-    useEffect(() => {
+    React.useEffect(() => {
         window.addEventListener('scroll', checkToAnimate);
 
         return () => {

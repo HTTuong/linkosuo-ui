@@ -1,3 +1,4 @@
+import React from 'react';
 import classNames from 'classnames/bind';
 import { Link } from 'react-router-dom';
 import classes from '../Footer.module.scss';
@@ -8,46 +9,46 @@ const cx = classNames.bind(classes);
 const CATEGORIES_LIST = [
     {
         title: 'Cakes',
-        to: config.routes.store.cake,
+        to: config.routes.collections.cake,
     },
     {
         title: 'Coffee cakes and buns',
-        to: config.routes.store.buns,
+        to: config.routes.collections.buns,
     },
     {
         title: 'Pies',
-        to: config.routes.store.pie,
+        to: config.routes.collections.pies,
     },
     {
         title: 'Salads',
-        to: config.routes.store.salad,
+        to: config.routes.collections.salads,
     },
     {
         title: 'Omelet rolls',
-        to: config.routes.store.roll,
+        to: config.routes.collections.roll,
     },
     {
         title: 'Sandwich cakes',
-        to: config.routes.store.sandwich,
+        to: config.routes.collections.sandwich,
     },
     {
         title: 'Round roasts',
-        to: config.routes.store.roast,
+        to: config.routes.collections.roast,
     },
 ];
 
 function Categories() {
-    return (
-        <ul className={cx('categories')}>
-            {CATEGORIES_LIST.map((item, index) => (
-                <li key={index}>
-                    <Link className={cx('information-item')} to={item.to}>
-                        {item.title}
-                    </Link>
-                </li>
-            ))}
-        </ul>
-    );
+    const renderCategories = React.useCallback(() => {
+        return CATEGORIES_LIST.map((item) => (
+            <li key={Math.random()}>
+                <Link className={cx('information-item')} to={item.to}>
+                    {item.title}
+                </Link>
+            </li>
+        ));
+    }, []);
+
+    return <ul className={cx('categories')}>{renderCategories()}</ul>;
 }
 
-export default Categories;
+export default React.memo(Categories);

@@ -1,0 +1,46 @@
+.loading-section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.loading-title {
+    font-size: 1.4rem;
+    margin-bottom: 6px;
+}
+
+.loading-box {
+    height: 6px;
+    width: 300px;
+    display: flex;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.loading-bar {
+    width: 100px;
+    height: 4px;
+    background-color: black;
+    position: relative;
+    animation-name: loading;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    border-radius: 2px;
+}
+
+@keyframes loading {
+    0% {
+        left: -100px;
+    }
+
+    50% {
+        left: 98px;
+    }
+
+    100% {
+        left: 300px;
+    }
+}

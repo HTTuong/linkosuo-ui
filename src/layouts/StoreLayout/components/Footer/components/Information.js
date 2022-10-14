@@ -1,3 +1,4 @@
+import React from 'react';
 import classNames from 'classnames/bind';
 import { Link } from 'react-router-dom';
 import classes from '../Footer.module.scss';
@@ -8,7 +9,7 @@ const cx = classNames.bind(classes);
 const LINK_LIST = [
     {
         title: 'Contact information',
-        to: config.routes.store.contact,
+        to: config.routes.pages.contact,
     },
     {
         title: 'Frequently asked Questions',
@@ -37,17 +38,17 @@ const LINK_LIST = [
 ];
 
 function Information() {
-    return (
-        <ul className={cx('information')}>
-            {LINK_LIST.map((item, index) => (
-                <li key={index}>
-                    <Link className={cx('information-item')} to={item.to}>
-                        {item.title}
-                    </Link>
-                </li>
-            ))}
-        </ul>
-    );
+    const renderLinkList = React.useCallback(() => {
+        return LINK_LIST.map((item) => (
+            <li key={Math.random()}>
+                <Link className={cx('information-item')} to={item.to}>
+                    {item.title}
+                </Link>
+            </li>
+        ));
+    }, []);
+
+    return <ul className={cx('information')}>{renderLinkList()}</ul>;
 }
 
-export default Information;
+export default React.memo(Information);

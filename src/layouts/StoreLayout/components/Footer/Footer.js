@@ -1,3 +1,4 @@
+import React from 'react';
 import classNames from 'classnames/bind';
 import classes from './Footer.module.scss';
 import FooterBlock from './FooterBlock';
@@ -25,4 +26,4 @@ function Footer() {
     );
 }
 
-export default Footer;
+export default React.memo(Footer);
