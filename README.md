@@ -4,6 +4,8 @@
 
 This project is about using ReactJS to clone Linkosuo online store. There are many core concepts which were also applied to this project including React Router, React hooks.
 
+This project now also has NodeJS backend to work with.
+
 ## About this project
 
 The main purpose of this project is about taking the advantage of React such as high usability components, routing different pages to make a magnificent online store with a big and different products'data
