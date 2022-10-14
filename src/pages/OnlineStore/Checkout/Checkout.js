@@ -9,25 +9,17 @@ import { Link } from 'react-router-dom';
 import * as validator from '~/config/validate';
 import config from '~/config';
 import Button from '~/components/Button';
-import axios from 'axios';
 
 const cx = classNames.bind(classes);
 
 const Checkout = () => {
     const token = localStorage.getItem('access_token');
-    // const [userData, setUserData] = React.useState({});
+
     const [wasSubmitted, setWasSubmitted] = React.useState(false);
 
     const emailRef = React.useRef();
     const firstnameRef = React.useRef();
     const lastnameRef = React.useRef();
-
-    // if (emailRef.current && firstnameRef.current && lastnameRef.current) {
-    //     const nameArray = userData.fullname && userData.fullname.split(' ');
-    //     emailRef.current.value = userData.email;
-    //     firstnameRef.current.value = nameArray && nameArray[0];
-    //     lastnameRef.current.value = nameArray && [...nameArray].slice(1).join(' ');
-    // }
 
     const ctx = React.useContext(CartContext);
 

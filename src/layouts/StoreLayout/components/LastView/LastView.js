@@ -5,7 +5,6 @@ import GridProducts from '~/components/GridProducts';
 import CartContext from '~/store/context';
 
 const cx = classNames.bind(classes);
-const bodyELement = document.querySelector('body');
 
 const LastView = () => {
     const ctx = React.useContext(CartContext);

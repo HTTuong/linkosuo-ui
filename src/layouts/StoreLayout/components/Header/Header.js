@@ -27,7 +27,6 @@ function Header() {
 
     const handleScroll = React.useCallback(() => {
         const policyElement = document.getElementById('policy');
-        const headerElement = document.getElementById('header');
         const policyHeight = policyElement.offsetHeight;
         if (window.scrollY > policyHeight) {
             setIsScrolling(true);
