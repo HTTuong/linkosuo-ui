@@ -15,8 +15,6 @@ const cx = classNames.bind(classes);
 const bodyELement = document.querySelector('body');
 const api = process.env.REACT_APP_API;
 
-console.log(api);
-
 const QUOTES = config.quotes;
 
 const PRODUCT_SECTION = {
@@ -30,6 +28,7 @@ const PRODUCT_SECTION = {
 };
 
 function Home() {
+    console.log('This is Home: ', api);
     const navigate = useNavigate();
 
     const [productsList, setProductsList] = React.useState([]);
