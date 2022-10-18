@@ -129,7 +129,7 @@ const Form = React.forwardRef(({ action, checkForSubmission, titleBtn, api, chil
             }
 
             // if (action === 'checkout' && response.status === 201) {
-            if (action === 'checkout') {
+            if (action === 'checkout' && response.status === 201) {
                 ctx.handleClearProduct();
                 navigate(`${config.routes.store.payment}`);
             }
