@@ -180,6 +180,19 @@
     clear: both;
 }
 
+.loading {
+    height: calc(100vh - var(--header-height));
+    display: flex;
+    justify-content: center;
+    align-self: center;
+}
+
+.load {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+}
+
 //Tablet
 @media (max-width: 1068px) {
     .orders__total-subtitle {

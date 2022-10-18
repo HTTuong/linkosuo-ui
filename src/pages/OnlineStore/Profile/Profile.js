@@ -124,8 +124,8 @@ const Profile = () => {
     }, [userInfo.orders]);
 
     return (
-        <div className={cx('wrapper')}>
-            <div className={cx('inner')}>
+        <div className={cx('wrapper', { loading: isLoading })}>
+            <div className={cx('inner', { load: isLoading })}>
                 {!isLoading && (
                     <>
                         <Button

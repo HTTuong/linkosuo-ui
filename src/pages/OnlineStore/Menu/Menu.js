@@ -23,7 +23,7 @@ function Menu() {
     const [menuDescription, setMenuDescription] = React.useState([]);
     const [productList, setProductList] = React.useState([]);
     const [menuTitle, setMenuTitle] = React.useState('');
-    const [isLoading, setIsLoading] = React.useState(false);
+    const [isLoading, setIsLoading] = React.useState(true);
     const [colsNumber, setColsNumber] = React.useState(4);
     const [openDiet, setOpenDiet] = React.useState(false);
 
