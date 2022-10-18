@@ -10,6 +10,7 @@ import CartContext from '~/store/context';
 import axios from 'axios';
 
 const cx = classNames.bind(classes);
+const domainApi = process.env.REACT_APP_DOMAIN_API;
 
 function Detail() {
     const navigate = useNavigate();
@@ -44,7 +45,7 @@ function Detail() {
     React.useLayoutEffect(() => {
         setIsLoading(true);
         axios
-            .get('http://192.168.0.101:3000' + pathRoute.pathname)
+            .get(domainApi + pathRoute.pathname)
             .then((product) => {
                 setCurrentProduct(product.data.product);
                 setIsLoading(false);

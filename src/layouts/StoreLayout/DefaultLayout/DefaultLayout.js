@@ -13,6 +13,7 @@ import LastView from '../components/LastView';
 import CartContext from '~/store/context';
 
 const cx = classNames.bind(classes);
+const api = process.env.REACT_APP_API;
 
 function DefaultLayout({ children }) {
     const token = localStorage.getItem('access_token');
@@ -26,7 +27,7 @@ function DefaultLayout({ children }) {
 
         if (token) {
             axios
-                .get('http://192.168.0.101:3000/linkosuo-ui/account/jwt', {
+                .get(api + '/account/jwt', {
                     headers: {
                         Authorization: 'Bearer ' + token,
                     },
@@ -38,7 +39,7 @@ function DefaultLayout({ children }) {
                 })
                 .then((token) => {
                     validateToken = setTimeout(async () => {
-                        const response = await axios.get('http://192.168.0.101:3000/linkosuo-ui/account/validate-jwt', {
+                        const response = await axios.get(api + '/account/validate-jwt', {
                             headers: {
                                 Authorization: 'Bearer ' + token,
                             },

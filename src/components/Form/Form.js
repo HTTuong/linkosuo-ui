@@ -89,11 +89,10 @@ const Form = React.forwardRef(({ action, checkForSubmission, titleBtn, api, chil
         const formValues = Object.fromEntries(formData.entries());
         const formIsValid = validateForm(formValues);
         setWasSubmitted(true);
-        console.log(formValues);
+
         if (!formIsValid) {
             return;
         }
-        console.log('Form is valid for ' + action);
 
         const dataRequest = {
             email: formValues.email,

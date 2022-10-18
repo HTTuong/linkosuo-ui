@@ -10,6 +10,7 @@ import { authActions } from '~/store/redux/auth';
 import config from '~/config';
 
 const cx = classNames.bind(classes);
+const api = process.env.REACT_APP_API;
 
 const validateName = (name) => {
     const regex = /^[a-z ,.'-]+$/i;
@@ -141,9 +142,7 @@ const Form = ({ action, setMessageFromResponse }) => {
 
         try {
             const response = await axios.post(
-                `http://192.168.0.101:3000/linkosuo-ui/account/${action}${
-                    action === 'change-password' ? '/' + pathRoute.pathname.split('/')[4] : ''
-                }`,
+                `${api}/account/${action}${action === 'change-password' ? '/' + pathRoute.pathname.split('/')[4] : ''}`,
                 {
                     firstname: formValues.firstname,
                     lastname: formValues.lastname,

@@ -10,6 +10,7 @@ import config from '~/config';
 import axios from 'axios';
 
 const cx = classNames.bind(classes);
+const api = process.env.REACT_APP_API;
 
 const changeDateFormat = (dateInput) => {
     const eventDate = new Date(dateInput);
@@ -43,7 +44,7 @@ const Profile = () => {
     React.useLayoutEffect(() => {
         setIsLoading(true);
         axios
-            .get('http://192.168.0.101:3000/linkosuo-ui/checkout/order', {
+            .get(api + '/checkout/order', {
                 headers: {
                     Authorization: 'Bearer ' + token,
                 },

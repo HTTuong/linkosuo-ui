@@ -12,6 +12,7 @@ import config from '~/config';
 
 const cx = classNames.bind(classes);
 const bodyELement = document.querySelector('body');
+const api = process.env.REACT_APP_API;
 
 function Menu() {
     const navigate = useNavigate();
@@ -31,7 +32,7 @@ function Menu() {
 
     React.useLayoutEffect(() => {
         const fetchProducts = async () => {
-            const response = await axios.get(`http://192.168.0.101:3000/linkosuo-ui/collections/${type}/${diet}`);
+            const response = await axios.get(`${api}/collections/${type}/${diet}`);
             return response;
         };
 

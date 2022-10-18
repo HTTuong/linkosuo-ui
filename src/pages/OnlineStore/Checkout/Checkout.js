@@ -11,6 +11,7 @@ import config from '~/config';
 import Button from '~/components/Button';
 
 const cx = classNames.bind(classes);
+const api = process.env.REACT_APP_API;
 
 const Checkout = () => {
     const token = localStorage.getItem('access_token');
@@ -30,7 +31,7 @@ const Checkout = () => {
     // React.useLayoutEffect(() => {
     //     if (token) {
     //         axios
-    //             .get('http://192.168.0.101:3000/linkosuo-ui/account/profile', {
+    //             .get(api + '/account/profile', {
     //                 headers: {
     //                     Authorization: 'Bearer ' + token,
     //                 },
@@ -86,7 +87,7 @@ const Checkout = () => {
                                             action="checkout"
                                             checkForSubmission={checkSubmit}
                                             titleBtn="CONFIRM PAYMENT"
-                                            api="http://192.168.0.101:3000/linkosuo-ui/checkout"
+                                            api={api + '/checkout'}
                                         >
                                             <Input
                                                 labelTitle="Email address"

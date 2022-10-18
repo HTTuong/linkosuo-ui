@@ -13,6 +13,7 @@ import axios from 'axios';
 
 const cx = classNames.bind(classes);
 const bodyELement = document.querySelector('body');
+const api = process.env.REACT_APP_API;
 
 const QUOTES = config.quotes;
 
@@ -36,7 +37,7 @@ function Home() {
         setIsLoading(true);
 
         const getProductsHomePage = async () => {
-            const response = await axios.get('http://192.168.0.101:3000/linkosuo-ui');
+            const response = await axios.get(api);
             return response;
         };
 
