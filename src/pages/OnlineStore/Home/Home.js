@@ -15,6 +15,8 @@ const cx = classNames.bind(classes);
 const bodyELement = document.querySelector('body');
 const api = process.env.REACT_APP_API;
 
+console.log(api);
+
 const QUOTES = config.quotes;
 
 const PRODUCT_SECTION = {
@@ -37,8 +39,12 @@ function Home() {
         setIsLoading(true);
 
         const getProductsHomePage = async () => {
-            const response = await axios.get(api);
-            return response;
+            try {
+                const response = await axios.get(api);
+                return response;
+            } catch (error) {
+                console.log(error);
+            }
         };
 
         getProductsHomePage()
