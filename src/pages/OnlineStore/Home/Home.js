@@ -28,7 +28,6 @@ const PRODUCT_SECTION = {
 };
 
 function Home() {
-    console.log('This is Home: ', api);
     const navigate = useNavigate();
 
     const [productsList, setProductsList] = React.useState([]);
@@ -39,7 +38,7 @@ function Home() {
 
         const getProductsHomePage = async () => {
             try {
-                const response = await axios.get('https://linkosuo-api.herokuapp.com/linkosuo-ui');
+                const response = await axios.get(api);
                 return response;
             } catch (error) {
                 console.log(error);
