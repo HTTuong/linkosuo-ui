@@ -40,7 +40,7 @@ function Home() {
 
         const getProductsHomePage = async () => {
             try {
-                const response = await axios.get(api);
+                const response = await axios.get('https://linkosuo-api.herokuapp.com/linkosuo-ui');
                 return response;
             } catch (error) {
                 console.log(error);
