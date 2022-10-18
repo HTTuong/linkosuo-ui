@@ -17,7 +17,7 @@ In this project, you can interact with the UI and navigate to many pages such as
 -   HTML
 -   SCSS
 -   JavaScript
--   ReactJS
+-   React
 
 ## Launch
 
