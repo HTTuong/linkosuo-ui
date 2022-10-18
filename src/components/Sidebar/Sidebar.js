@@ -22,37 +22,25 @@ const generateDietTitle = (item) => {
 };
 
 const Sidebar = React.forwardRef(({ menu, openDiet, deleteOverlay }, ref) => {
-    const [active, setActive] = React.useState('');
-
     const navigate = useNavigate();
     const pathRoute = useLocation();
 
     const type = React.useMemo(() => pathRoute.pathname.split('/')[3], [pathRoute]);
-
-    React.useLayoutEffect(() => {
-        setActive('');
-    }, [type]);
-
-    React.useImperativeHandle(ref, () => ({
-        reset: () => {
-            setActive('');
-        },
-    }));
+    const diet = React.useMemo(() => pathRoute.pathname.split('/')[4], [pathRoute]);
 
     const renderMenu = React.useCallback(() => {
         return menu.map((item) => (
             <li
                 key={Math.random()}
-                className={cx('menu-item', { active: active === item })}
+                className={cx('menu-item', { active: item.includes(diet) })}
                 onClick={() => {
                     navigate(`${config.routes.collections.collections}/${type}/${item}`);
-                    setActive(item);
                 }}
             >
                 {generateDietTitle(item)}
             </li>
         ));
-    }, [active, menu, navigate, type]);
+    }, [menu, navigate, type, diet]);
 
     return (
         <div className={cx('sidebar', { show: openDiet })}>
