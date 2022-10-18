@@ -6,7 +6,6 @@ import Navbar from './Navbar';
 import React from 'react';
 import Policies from './Policies';
 import Actions from './Actions';
-import images from '~/assets/images';
 import { MenuIcon } from '~/components/Icon';
 import Overlay from '../Overlay';
 import Search from './Search';
