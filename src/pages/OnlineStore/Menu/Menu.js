@@ -114,30 +114,33 @@ function Menu() {
 
     return (
         <div className={cx('wrapper', { loading: isLoading })}>
-            <header className={cx('heading')} ref={headingRef} onClick={navigateToTypeMenu}>
-                <h2 className={cx('heading__title')}>{menuTitle}</h2>
-                {menuDescription && <div className={cx('description')}>{renderDescription()}</div>}
-            </header>
-            <div className={cx('menu-btn-section')}>
-                <span className={cx('menu-btn-section__title')}>{diet.split('-').join(' ')}</span>
-                <Button
-                    className={cx('menu-btn-section__btn')}
-                    title="Select special diet"
-                    onClick={() => {
-                        bodyELement.classList.add('disable-scrollbar');
-                        setOpenDiet(true);
-                    }}
-                />
-            </div>
-            <div className={cx('content')}>
-                <Sidebar menu={menuList} ref={headingRef} openDiet={openDiet} deleteOverlay={deleteOverlay} />
-                {!isLoading && (
-                    <div className={cx('product-list')}>
-                        <GridProducts products={productList} wrap cols={colsNumber} className={cx('animation')} />
+            {!isLoading && (
+                <>
+                    <header className={cx('heading')} ref={headingRef} onClick={navigateToTypeMenu}>
+                        <h2 className={cx('heading__title')}>{menuTitle}</h2>
+                        {menuDescription && <div className={cx('description')}>{renderDescription()}</div>}
+                    </header>
+                    <div className={cx('menu-btn-section')}>
+                        <span className={cx('menu-btn-section__title')}>{diet.split('-').join(' ')}</span>
+                        <Button
+                            className={cx('menu-btn-section__btn')}
+                            title="Select special diet"
+                            onClick={() => {
+                                bodyELement.classList.add('disable-scrollbar');
+                                setOpenDiet(true);
+                            }}
+                        />
                     </div>
-                )}
-                {isLoading && <Loading />}
-            </div>
+                    <div className={cx('content')}>
+                        <Sidebar menu={menuList} ref={headingRef} openDiet={openDiet} deleteOverlay={deleteOverlay} />
+
+                        <div className={cx('product-list')}>
+                            <GridProducts products={productList} wrap cols={colsNumber} className={cx('animation')} />
+                        </div>
+                    </div>
+                </>
+            )}
+            {isLoading && <Loading />}
             <Overlay active={openDiet} zIndex="4" inactiveFunction={deleteOverlay} />
         </div>
     );

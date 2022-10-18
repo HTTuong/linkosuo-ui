@@ -126,41 +126,42 @@ const Profile = () => {
     return (
         <div className={cx('wrapper')}>
             <div className={cx('inner')}>
-                <Button
-                    title="Log out"
-                    onClick={handleLogout}
-                    to={config.routes.store.home}
-                    className={cx('logout-btn')}
-                />
-                <div className={cx('heading')}>
-                    <h2 className={cx('heading__title')}>My account</h2>
-                    <h3 className={cx('heading__name')}>Hei {userInfo && userInfo.username} !</h3>
-                </div>
-                <div className={cx('content')}>
-                    <div className={cx('orders')}>
-                        <div className={cx('order__heading')}>
-                            <h5 className={cx('order__title')}>My orders</h5>
+                {!isLoading && (
+                    <>
+                        <Button
+                            title="Log out"
+                            onClick={handleLogout}
+                            to={config.routes.store.home}
+                            className={cx('logout-btn')}
+                        />
+                        <div className={cx('heading')}>
+                            <h2 className={cx('heading__title')}>My account</h2>
+                            <h3 className={cx('heading__name')}>Hei {userInfo && userInfo.username} !</h3>
                         </div>
-                        <div className={cx('orders')}>
-                            {!!userInfo.orders && userInfo.orders.length === 0 && (
-                                <h5 className={cx('order__empty-title')}>You have not placed any orders yet.</h5>
-                            )}
-                            {!isLoading && (
-                                <ul className={cx('orders__list')}>{!!userInfo.orders && renderOrders()}</ul>
-                            )}
-                            {isLoading && (
-                                <div className={cx('loading-section')}>
-                                    <Loading />
+                        <div className={cx('content')}>
+                            <div className={cx('orders')}>
+                                <div className={cx('order__heading')}>
+                                    <h5 className={cx('order__title')}>My orders</h5>
                                 </div>
-                            )}
+                                <div className={cx('orders')}>
+                                    {!!userInfo.orders && userInfo.orders.length === 0 && (
+                                        <h5 className={cx('order__empty-title')}>
+                                            You have not placed any orders yet.
+                                        </h5>
+                                    )}
+                                    {!isLoading && (
+                                        <ul className={cx('orders__list')}>{!!userInfo.orders && renderOrders()}</ul>
+                                    )}
+                                </div>
+                            </div>
                         </div>
+                    </>
+                )}
+                {isLoading && (
+                    <div className={cx('loading-section')}>
+                        <Loading />
                     </div>
-                    {/* <div className={cx('address')}>
-                        <div className={cx('address__heading')}>
-                            <h5 className={cx('address__title')}>Address</h5>
-                        </div>
-                    </div> */}
-                </div>
+                )}
             </div>
         </div>
     );
