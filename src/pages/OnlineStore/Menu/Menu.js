@@ -61,9 +61,9 @@ function Menu() {
             .catch((error) => {
                 const errorObject = error.toJSON();
                 console.log(error.toJSON());
-                if (errorObject.status === 404) {
+                if (errorObject.statusCode === 404) {
                     navigate('/linkosuo-ui/*', { replace: true });
-                } else if (errorObject.status === null) {
+                } else if (errorObject.statusCode === null) {
                     navigate('/linkosuo-ui/*', { replace: true });
                 } else {
                     console.log(errorObject);

@@ -45,7 +45,7 @@ function DefaultLayout({ children }) {
                             },
                         });
 
-                        if (response.status === 200) {
+                        if (response.statusCode === 200) {
                             dispatch(authActions.removeLoginInfo());
                             localStorage.removeItem('access_token');
 

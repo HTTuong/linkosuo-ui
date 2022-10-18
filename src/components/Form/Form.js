@@ -126,7 +126,7 @@ const Form = React.forwardRef(({ action, checkForSubmission, titleBtn, api, chil
                 response = await axios.post(`${api}/random-order `, dataRequest);
             }
 
-            if (action === 'checkout' && response.status === 201) {
+            if (action === 'checkout' && response.statusCode === 201) {
                 ctx.handleClearProduct();
                 navigate(`${config.routes.store.payment}`);
             }
