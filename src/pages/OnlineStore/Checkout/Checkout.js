@@ -28,27 +28,15 @@ const Checkout = () => {
         setWasSubmitted(wasSubmitted);
     }, []);
 
-    // React.useLayoutEffect(() => {
-    //     if (token) {
-    //         axios
-    //             .get(api + '/account/profile', {
-    //                 headers: {
-    //                     Authorization: 'Bearer ' + token,
-    //                 },
-    //             })
-    //             .then((response) => {
-    //                 const userData = response.data.userInfo;
-    //                 setUserData(userData);
-    //             })
-    //             .catch((error) => console.log(error));
-    //     }
-    // }, [token]);
-
     const renderProducts = React.useCallback(() => {
         return ctx.order.products.map((product) => (
             <li key={Math.random()} className={cx('products-list__order-item')}>
                 <div className={cx('order-item')}>
-                    <img className={cx('order-item__img')} src={product.image} alt={product.id} />
+                    <img
+                        className={cx('order-item__img')}
+                        src="https://cdn.shopify.com/s/files/1/0544/2600/9779/files/musta_ilman_taustaa_a9c0489c-3200-4c54-972b-f5091b731c42_170x@2x.png?v=1614267179"
+                        alt={product.id}
+                    />
                     <div className={cx('order-item__info')}>
                         <h5 className={cx('order-item__info-name')}>{product.name}</h5>
                         <p className={cx('order-item__info-price')}>{product.price}€</p>
