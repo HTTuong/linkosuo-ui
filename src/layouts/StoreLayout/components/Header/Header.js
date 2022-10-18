@@ -76,7 +76,12 @@ function Header() {
                     <MenuIcon />
                 </div>
                 <Link to={config.routes.store.home}>
-                    <img className={cx('logo')} src={images.logo} alt="linkosuo" onClick={refreshPage} />
+                    <img
+                        className={cx('logo')}
+                        src="https://cdn.shopify.com/s/files/1/0544/2600/9779/files/musta_ilman_taustaa_a9c0489c-3200-4c54-972b-f5091b731c42_170x@2x.png?v=1614267179"
+                        alt="linkosuo"
+                        onClick={refreshPage}
+                    />
                 </Link>
                 <Navbar deleteOverlay={deleteOverlay} menuSearch={menuSearch} />
                 <Actions setIsSearching={setSearch} />
