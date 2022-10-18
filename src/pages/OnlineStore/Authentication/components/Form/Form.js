@@ -153,34 +153,53 @@ const Form = ({ action, setMessageFromResponse }) => {
             );
             setMessageFromResponse('');
 
-            if (action === 'register' && response.statusCode === 201) {
+            // if (action === 'register' && response.statusCode === 201) {
+            //     navigate(`${config.routes.account.login}`);
+            //     setMessageFromResponse('User created successfully');
+            // }
+            // if (action === 'login' && response.statusCode === 200) {
+            //     localStorage.setItem('access_token', response.data.token);
+            //     dispatch(authActions.addLoginInfo({ token: response.data.token }));
+            //     navigate(`${config.routes.store.home}`, { replace: true });
+            //     window.location.reload();
+            // }
+            // if (action === 'forgot-password' && response.statusCode === 200) {
+            //     navigate(`${config.routes.account.changepwd}/${response.data.id}`, { replace: true });
+            //     setMessageFromResponse('');
+            // }
+            // if (action === 'change-password' && response.statusCode === 200) {
+            //     navigate(`${config.routes.account.login}`);
+            //     setMessageFromResponse('Password changed successfully');
+            // }
+
+            if (action === 'register') {
                 navigate(`${config.routes.account.login}`);
                 setMessageFromResponse('User created successfully');
             }
-            if (action === 'login' && response.statusCode === 200) {
+            if (action === 'login') {
                 localStorage.setItem('access_token', response.data.token);
                 dispatch(authActions.addLoginInfo({ token: response.data.token }));
                 navigate(`${config.routes.store.home}`, { replace: true });
                 window.location.reload();
             }
-            if (action === 'forgot-password' && response.statusCode === 200) {
+            if (action === 'forgot-password') {
                 navigate(`${config.routes.account.changepwd}/${response.data.id}`, { replace: true });
                 setMessageFromResponse('');
             }
-            if (action === 'change-password' && response.statusCode === 200) {
+            if (action === 'change-password') {
                 navigate(`${config.routes.account.login}`);
                 setMessageFromResponse('Password changed successfully');
             }
         } catch (error) {
             console.log(error);
             let errorMessage;
-            if (error.response.statusCode === 422) {
-                errorMessage = error.response.data.message;
-                setMessageFromResponse(errorMessage);
-            }
-            if (error.response.statusCode === 0) {
-                navigate(`${config.routes.others.nofound}`);
-            }
+            // if (error.response.statusCode === 422) {
+            //     errorMessage = error.response.data.message;
+            //     setMessageFromResponse(errorMessage);
+            // }
+            // if (error.response.statusCode === 0) {
+            //     navigate(`${config.routes.others.nofound}`);
+            // }
         }
     };
 

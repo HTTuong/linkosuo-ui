@@ -126,25 +126,13 @@ const Form = React.forwardRef(({ action, checkForSubmission, titleBtn, api, chil
                 response = await axios.post(`${api}/random-order `, dataRequest);
             }
 
-            if (action === 'checkout' && response.statusCode === 201) {
+            // if (action === 'checkout' && response.status === 201) {
+            if (action === 'checkout') {
                 ctx.handleClearProduct();
                 navigate(`${config.routes.store.payment}`);
             }
-            // if (action === 'login' && response.status === 200) {
-            //     localStorage.setItem('access_token', response.data.token);
-            //     dispatch(authActions.addLoginInfo({ token: response.data.token }));
-            //     navigate(`${config.routes.store.home}`, { replace: true });
-            //     window.location.reload();
-            // }
         } catch (error) {
             console.log(error);
-            // let errorMessage;
-            // if (error.response.status === 422) {
-            //     errorMessage = error.response.data.message;
-            // }
-            // if (error.response.status === 0) {
-            //     navigate(`${config.routes.others.nofound}`);
-            // }
         }
     };
 

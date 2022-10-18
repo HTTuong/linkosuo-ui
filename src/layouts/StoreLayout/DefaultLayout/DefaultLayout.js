@@ -45,15 +45,15 @@ function DefaultLayout({ children }) {
                             },
                         });
 
-                        if (response.statusCode === 200) {
-                            dispatch(authActions.removeLoginInfo());
-                            localStorage.removeItem('access_token');
+                        // if (response.status === 200) {
+                        dispatch(authActions.removeLoginInfo());
+                        localStorage.removeItem('access_token');
 
-                            // Disable scrollbar to show expired modal
-                            const bodyElement = document.querySelector('body');
-                            bodyElement.classList.add('disable-scrollbar');
-                            setExpireMessage(response.data.message);
-                        }
+                        // Disable scrollbar to show expired modal
+                        const bodyElement = document.querySelector('body');
+                        bodyElement.classList.add('disable-scrollbar');
+                        setExpireMessage(response.data.message);
+                        // }
                     }, 3600 * 1000);
                 })
                 .catch((error) => {

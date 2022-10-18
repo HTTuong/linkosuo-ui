@@ -55,9 +55,9 @@ function Detail() {
                 if (error.message === 'Network Error') {
                     navigate('/linkosuo-ui/*', { replace: true }); // server down
                 }
-                if (error.response.statusCode === 404) {
-                    navigate('/linkosuo-ui/*', { replace: true }); // not found
-                }
+                // if (error.response.statusCode === 404) {
+                //     navigate('/linkosuo-ui/*', { replace: true }); // not found
+                // }
             });
     }, [pathRoute, navigate]);
 
