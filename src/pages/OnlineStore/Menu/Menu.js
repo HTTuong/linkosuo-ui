@@ -62,13 +62,13 @@ function Menu() {
                 const errorObject = error.toJSON();
                 console.log(error.toJSON());
                 console.log(errorObject);
-                // if (errorObject.statusCode === 404) {
-                //     navigate('/linkosuo-ui/*', { replace: true });
-                // } else if (errorObject.statusCode === null) {
-                //     navigate('/linkosuo-ui/*', { replace: true });
-                // } else {
-                //     console.log(errorObject);
-                // }
+                if (errorObject.status === 404) {
+                    navigate('/linkosuo-ui/*', { replace: true });
+                } else if (errorObject.status === null) {
+                    navigate('/linkosuo-ui/*', { replace: true });
+                } else {
+                    console.log(errorObject);
+                }
             });
     }, [type, diet, navigate]);
 
