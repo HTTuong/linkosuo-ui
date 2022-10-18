@@ -120,6 +120,7 @@ const Form = React.forwardRef(({ action, checkForSubmission, titleBtn, api, chil
                 response = await axios.post(`${api}/order `, dataRequest, {
                     headers: {
                         Authorization: 'Bearer ' + token,
+                        'Content-Type': 'application/json',
                     },
                 });
             } else {
