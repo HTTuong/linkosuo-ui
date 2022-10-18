@@ -153,24 +153,24 @@ const Form = ({ action, setMessageFromResponse }) => {
             );
             setMessageFromResponse('');
 
-            // if (action === 'register' && response.statusCode === 201) {
-            //     navigate(`${config.routes.account.login}`);
-            //     setMessageFromResponse('User created successfully');
-            // }
-            // if (action === 'login' && response.statusCode === 200) {
-            //     localStorage.setItem('access_token', response.data.token);
-            //     dispatch(authActions.addLoginInfo({ token: response.data.token }));
-            //     navigate(`${config.routes.store.home}`, { replace: true });
-            //     window.location.reload();
-            // }
-            // if (action === 'forgot-password' && response.statusCode === 200) {
-            //     navigate(`${config.routes.account.changepwd}/${response.data.id}`, { replace: true });
-            //     setMessageFromResponse('');
-            // }
-            // if (action === 'change-password' && response.statusCode === 200) {
-            //     navigate(`${config.routes.account.login}`);
-            //     setMessageFromResponse('Password changed successfully');
-            // }
+            if (action === 'register' && response.status === 201) {
+                navigate(`${config.routes.account.login}`);
+                setMessageFromResponse('User created successfully');
+            }
+            if (action === 'login' && response.status === 200) {
+                localStorage.setItem('access_token', response.data.token);
+                dispatch(authActions.addLoginInfo({ token: response.data.token }));
+                navigate(`${config.routes.store.home}`, { replace: true });
+                window.location.reload();
+            }
+            if (action === 'forgot-password' && response.status === 200) {
+                navigate(`${config.routes.account.changepwd}/${response.data.id}`, { replace: true });
+                setMessageFromResponse('');
+            }
+            if (action === 'change-password' && response.status === 200) {
+                navigate(`${config.routes.account.login}`);
+                setMessageFromResponse('Password changed successfully');
+            }
 
             if (action === 'register') {
                 navigate(`${config.routes.account.login}`);
