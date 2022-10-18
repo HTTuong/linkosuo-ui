@@ -124,6 +124,7 @@ const Form = React.forwardRef(({ action, checkForSubmission, titleBtn, api, chil
                 });
             } else {
                 response = await axios.post(`${api}/random-order `, dataRequest);
+                console.log(response);
             }
 
             // if (action === 'checkout' && response.status === 201) {

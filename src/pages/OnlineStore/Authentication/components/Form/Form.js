@@ -192,7 +192,8 @@ const Form = ({ action, setMessageFromResponse }) => {
             }
         } catch (error) {
             console.log(error);
-            let errorMessage;
+            // let errorMessage;
+
             // if (error.response.statusCode === 422) {
             //     errorMessage = error.response.data.message;
             //     setMessageFromResponse(errorMessage);
