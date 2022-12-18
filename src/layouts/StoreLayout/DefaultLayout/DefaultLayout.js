@@ -11,9 +11,10 @@ import Modal from '../components/Modal';
 import axios from 'axios';
 import LastView from '../components/LastView';
 import CartContext from '~/store/context';
+import { REACT_APP_API } from '~/constants.d';
 
 const cx = classNames.bind(classes);
-const api = process.env.REACT_APP_API;
+const api = REACT_APP_API;
 
 function DefaultLayout({ children }) {
     const token = localStorage.getItem('access_token');

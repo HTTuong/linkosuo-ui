@@ -1,6 +1,7 @@
 import useFetch from '../useFetch';
+import { REACT_APP_DOMAIN_API } from '~/constants.d';
 
-const baseURL = process.env.BASE_URL;
+const baseURL = REACT_APP_DOMAIN_API;
 
 export const getData = () => {
     // eslint-disable-next-line react-hooks/rules-of-hooks

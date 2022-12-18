@@ -10,10 +10,11 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import Loading from '~/components/Loading';
 import axios from 'axios';
+import { REACT_APP_API } from '~/constants.d';
 
 const cx = classNames.bind(classes);
 const bodyELement = document.querySelector('body');
-const api = process.env.REACT_APP_API;
+const api = REACT_APP_API;
 
 const QUOTES = config.quotes;
 

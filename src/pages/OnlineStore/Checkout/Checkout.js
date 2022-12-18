@@ -9,9 +9,10 @@ import { Link } from 'react-router-dom';
 import * as validator from '~/config/validate';
 import config from '~/config';
 import Button from '~/components/Button';
+import { REACT_APP_API } from '~/constants.d';
 
 const cx = classNames.bind(classes);
-const api = process.env.REACT_APP_API;
+const api = REACT_APP_API;
 
 const Checkout = () => {
     const token = localStorage.getItem('access_token');

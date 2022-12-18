@@ -8,9 +8,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMinus, faPlus } from '@fortawesome/free-solid-svg-icons';
 import CartContext from '~/store/context';
 import axios from 'axios';
+import { REACT_APP_DOMAIN_API } from '~/constants.d';
 
 const cx = classNames.bind(classes);
-const domainApi = process.env.REACT_APP_DOMAIN_API;
+const domainApi = REACT_APP_DOMAIN_API;
 
 function Detail() {
     const navigate = useNavigate();

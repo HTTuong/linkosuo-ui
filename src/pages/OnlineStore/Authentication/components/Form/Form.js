@@ -8,9 +8,10 @@ import { useDispatch } from 'react-redux';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { authActions } from '~/store/redux/auth';
 import config from '~/config';
+import { REACT_APP_API } from '~/constants.d';
 
 const cx = classNames.bind(classes);
-const api = process.env.REACT_APP_API;
+const api = REACT_APP_API;
 
 const validateName = (name) => {
     const regex = /^[a-z ,.'-]+$/i;

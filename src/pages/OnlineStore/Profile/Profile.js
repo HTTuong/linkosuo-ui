@@ -8,9 +8,10 @@ import { useNavigate } from 'react-router-dom';
 import React from 'react';
 import config from '~/config';
 import axios from 'axios';
+import { REACT_APP_API } from '~/constants.d';
 
 const cx = classNames.bind(classes);
-const api = process.env.REACT_APP_API;
+const api = REACT_APP_API;
 
 const changeDateFormat = (dateInput) => {
     const eventDate = new Date(dateInput);
