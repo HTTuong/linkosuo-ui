@@ -14,6 +14,9 @@ In this project, you can interact with the UI and navigate to many pages such as
 ## Launch
 
 -   Click the following link to see the project: https://httuong-linkosuo.netlify.app/linkosuo-ui
+-   This account can be used to test the authentication: 
+-   Email: hoangthetuong2001@gmail.com
+-   Password: 123456
 
 ## Project status
 
