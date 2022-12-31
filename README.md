@@ -1,27 +1,19 @@
-# Linkosuo UI
+# Food Ecommerce Website (Clone Linkosuo) - July, 2022
 
-# Introduction
 
-This project is about using ReactJS to clone Linkosuo online store. There are many core concepts which were also applied to this project including React Router, React hooks.
+## Introduction
 
-This project now also has NodeJS backend to work with. This app now can work correctly with some common web behaviors.
+This project is about using ReactJS to clone Linkosuo online store. A website allows customers to see the detail and pre-order dishes, create an account and log in to see all the orders in the past. 
 
 ## About this project
 
 The main purpose of this project is about taking the advantage of React such as high usability components, routing different pages to make a magnificent online store with a big and different products'data
 
-In this project, you can interact with the UI and navigate to many pages such as Home page, Menu pages, Cart page and so on. Each pages was designed and coded with different product data but the same layout. User can add the desired products into cart, modify the amount, delete the product and purchase. There is also a section in account page which was applied form validation to make it more practical.
-
-## Technologies
-
--   HTML
--   SCSS
--   JavaScript
--   React
+In this project, you can interact with the UI and navigate to many pages such as Home page, Menu pages, Cart page and so on. Each pages was designed and coded with different product data but the same layout. User can add the desired products into cart, modify the amount, delete the product and purchase. Users can also create an account to sign in and change the password if they accidently forgot it. 
 
 ## Launch
 
--   Click the following link to view the project: https://httuong.github.io/linkosuo-ui/
+-   Click the following link to see the project: https://httuong-linkosuo.netlify.app/linkosuo-ui
 
 ## Project status
 
@@ -37,73 +29,19 @@ In this project, you can interact with the UI and navigate to many pages such as
 
 <img width="1920" alt="Screen Shot 2022-07-19 at 13 20 19" src="https://user-images.githubusercontent.com/89579792/179728164-02be9df6-0608-445b-b6e6-4412ebbf195d.png">
 
-## Getting Started with Create React App
+## Main Techniques and Tools
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+-   **`ReactJS`**: used to build the client-side logic
+-   **`SCSS`**: used to build client-side user interface
+-   **`NodeJS/ExpressJS`**: used to make the server for this app
+-   **`MongoDB`**: used to save the data for this app
+-   **`Github`**: used to manage the source code
+-   **`Visual Studio Code`**: used to write code
+-   **`Netlify`**: used to deploy the Front-end of this project
+-   **`Heroku`**: used to deploy the Back-end of this project
 
-## Available Scripts
+## Technique details
 
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+-   **`Client Side`**: ReactJS, React-Router, React-Hooks, Styled Component, HTML5, CSS - SCSS.
+-   **`Server Side`**: NodeJS, ExpressJS, JSON Web Token, MVC pattern, CORS, Mongoose, Nodemailer, Body Parser, Bcrypt. 
+-   **`Deployment`**: Netlify (CI/CD for client), Heroku.
