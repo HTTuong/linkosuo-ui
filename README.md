@@ -11,6 +11,9 @@ The main purpose of this project is about taking the advantage of React such as 
 
 In this project, you can interact with the UI and navigate to many pages such as Home page, Menu pages, Cart page and so on. Each pages was designed and coded with different product data but the same layout. User can add the desired products into cart, modify the amount, delete the product and purchase. Users can also create an account to sign in and change the password if they accidently forgot it. 
 
+## Project APIs
+https://github.com/HTTuong/linkosuo-api
+
 ## Launch
 
 -   Click the following link to see the project: https://httuong-linkosuo.netlify.app/linkosuo-ui
